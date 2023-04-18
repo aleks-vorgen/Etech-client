@@ -1,12 +1,17 @@
 import React from 'react'
 import './App.css'
+import { Router, Route } from 'react-router-dom'
 
 function App() {
   
 
   return (
-    <div className="App">
-      <h1 className='text-red-500'>Алешка привет</h1>
+    <div>
+      <Router>
+        <Route path='/' element={} />
+        <Route />
+        <Route />
+      </Router>
     </div>
   )
 }
