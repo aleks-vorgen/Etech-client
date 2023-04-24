@@ -4,7 +4,7 @@ import axios from 'axios'
 
 export function HomePage() {
   const getDataProducts = () => {
-    axios.get('https://etech-5fydkirpga-lm.a.run.app/api/categories')
+    axios.get('http://etech-5fydkirpga-lm.a.run.app/api/categories')
     .then (res => {
       console.log(res.categories);
     })
