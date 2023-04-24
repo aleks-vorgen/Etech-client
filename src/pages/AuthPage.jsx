@@ -5,3 +5,4 @@ export function AuthPage() {
     <div>Вхід в особистий кабінет</div>
   )
 }
+

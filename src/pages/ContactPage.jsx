@@ -1,9 +1,8 @@
 import React from 'react'
 
-function ContactPage() {
+export function ContactPage() {
   return (
     <div>Контакти</div>
   )
 }
 
-export default ContactPage
