@@ -4,9 +4,9 @@ import axios from 'axios'
 
 export function HomePage() {
   const getDataProducts = () => {
-    axios.get('http://etech-5fydkirpga-lm.a.run.app/api/categories')
+    axios.get('https://etech-5fydkirpga-lm.a.run.app/categories')
     .then (res => {
-      console.log(res.categories);
+      console.log(res.data);
     })
     .catch (error => {
       console.log(error);
@@ -14,9 +14,9 @@ export function HomePage() {
   }
 
   return (
-    <div>
-    Головна
-    <button onClick={getDataProducts}> нажми</button>
+    <div style={{margin: '0px 50px'}}>
+    <h2>Головна</h2>
+    <button style={{border: '1px solid black', padding: '5px 10px'}} onClick={getDataProducts}> нажми</button>
     </div>
   )
 }
