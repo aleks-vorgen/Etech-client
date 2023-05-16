@@ -46,7 +46,7 @@ const ProductSearch = () => {
 
   return (
     <div>
-      <input
+      <input 
         type="text"
         value={searchQuery}
         onChange={handleInputChange}
