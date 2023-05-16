@@ -1,27 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const ProductSearch = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [products, setProducts] = useState([]);
-    const [selectedProduct, setSelectedProduct] = useState(null);
 
     const handleSearch = async (e) => {
         e.preventDefault();
+
         try {
-            if (searchQuery.trim() === '') {
+            if (!searchQuery.trim()) {
                 setProducts([]);
                 return;
             }
 
             const response = await axios.get('https://etech-5fydkirpga-lm.a.run.app/products/all', {
-                params: {
-                    title: searchQuery,
-                    producer: searchQuery
-                }
-            }).catch(e => {
-                console.log(e)
-            })
+                params: { title: searchQuery, producer: searchQuery }
+            });
 
             setProducts(response.data);
         } catch (error) {
@@ -31,15 +26,13 @@ const ProductSearch = () => {
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);
-        // Redirect to the product page
         window.location.href = `/products/${product.id}`;
     };
 
     const handleInputChange = (e) => {
         const query = e.target.value;
         setSearchQuery(query);
-
-        if (query.trim() === '') {
+        if (!query.trim()) {
             setProducts([]);
         }
     };
@@ -55,16 +48,7 @@ const ProductSearch = () => {
                 />
             </form>
 
-            {selectedProduct && (
-                <div>
-                    <h2>{selectedProduct.title}</h2>
-                    <p>Price: ${selectedProduct.price}</p>
-                    <p>Description: {selectedProduct.description}</p>
-                    {/* Render other product details here */}
-                </div>
-            )}
-
-            {products.length > 0 ? (
+            {products.length > 0 && (
                 <div>
                     {products.map((product) => (
                         <div key={product.id} onClick={() => handleProductClick(product)}>
@@ -75,7 +59,7 @@ const ProductSearch = () => {
                         </div>
                     ))}
                 </div>
-            ) : <div></div>}
+            )}
         </div>
     );
 };
