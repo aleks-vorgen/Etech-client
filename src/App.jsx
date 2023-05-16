@@ -9,11 +9,9 @@ import ProductCard from './components/Products/ProductCard'
 import {ProductsPage} from "./pages/ProductsPage.jsx";
 
 
-
-function App() {
   
 
-const App = () => {
+function App () {
   return (
     <>
       <Routes>
