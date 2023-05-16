@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Product from "./Product.jsx";
+import ProductCard from "./components/Products/ProductCard";
 
 const ProductSearch = () => {
     const [query, setQuery] = useState('');
     const [products, setProducts] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const navigate = useNavigate();
 
     const getData = async (e) => {
         e.preventDefault();
@@ -25,6 +28,11 @@ const ProductSearch = () => {
         }
     };
 
+    const handleProductClick = (product) => {
+        setSelectedProduct(product);
+        navigate(`/product/${product.id}`);
+    };
+
     const handleInputChange = (e) => {
         const query = e.target.value;
         setQuery(query);
@@ -34,7 +42,7 @@ const ProductSearch = () => {
     };
 
     return (
-        <div className='mx-auto my-5 w-2/3 relative'>
+        <div className='mx-auto my-5 w-2/3'>
             <form onSubmit={getData}>
                 <label htmlFor="default-search"
                        className="mb-2 text-sm font-medium text-gray-900 sr-only">
@@ -64,11 +72,18 @@ const ProductSearch = () => {
 
             {products.length > 0 && (
                 <div className='absolute border-l border-r border-b -mt-2 p-3 w-full'>
-                    <div>
-                        {products.map((product) => (
-                            <Product key={product.id} product={product}/>
-                        ))}
-                    </div>
+                    {products.map((product) => (
+                        <ProductCard key={product.id}
+                                     product={product}
+                                     onClick={handleProductClick(product)} />
+                    ))}
+                </div>
+            )}
+
+            {selectedProduct && (
+                <div>
+                    <h2>Selected Product</h2>
+                    <ProductCard productId={selectedProduct.id} />
                 </div>
             )}
         </div>
