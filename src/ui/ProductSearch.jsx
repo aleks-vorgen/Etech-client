@@ -47,6 +47,7 @@ const ProductSearch = () => {
                        onChange={handleInputChange}
                        required
                 />
+
                 <button type="submit"
                         className="text-white bg-blue rounded-sm px-3 py-2 drop-shadow">
                     <svg className="w-5 h-5 text-white" fill="none"
@@ -56,13 +57,12 @@ const ProductSearch = () => {
                     </svg>
                 </button>
             </form>
-
             {products.length > 0 && (
-                <div className='absolute border-l border-r border-b -mt-2 p-3 w-[91.6%] z-0'>
+                <div className='absolute -mt-2 -ml-8 p-3 w-full'>
                     {products.map((product) => (
                         <Link to={`/products/${product.id}`}
                               key={product.id}
-                              className='border-b'>
+                              className='block border-b bg-black/30 px-5 py-2 backdrop-blur-sm'>
                             <p>Title: {product.title}</p>
                             <p>Price: {product.price}</p>
                         </Link>

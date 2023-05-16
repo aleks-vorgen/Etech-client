@@ -13,7 +13,7 @@ const Header = () => {
                 </Link>
                 <ProductSearch/>
             </div>
-            <div className='bg-blue h-[55px]'>
+            <div className='bg-blue'>
                 <NavbarHeader/>
             </div>
         </>
