@@ -15,11 +15,11 @@ const Header = () => {
                         <span>e-tech</span>
                     </Link>
                 </div>
-                <div className='box-border rounded-[3px] border-[1px solid #DCDCDC]'>
+                <div className=' mx-auto py-8'>
                     <ProductSearch />
                 </div>
             </div>
-            <div className='bg-blue h-[55px]'>
+            <div className='bg-blue h-[55px] text-zinc-50'>
                 <NavbarHeader />
             </div>
         </div>   

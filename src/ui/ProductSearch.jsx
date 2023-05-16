@@ -46,8 +46,9 @@ const ProductSearch = () => {
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} className='w-64 mx-auto'>
       <input
+        className="w-full bg-gray-200 border border-gray-300 rounded py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" 
         type="text"
         value={searchQuery}
         onChange={handleInputChange}
