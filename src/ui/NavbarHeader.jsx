@@ -7,7 +7,7 @@ const NavbarHeader = () => {
         <div>
             <Link to="/"> Головна</Link> 
             <Link to="/checkout"> Оформити замовлення</Link>
-            <Link to="/contact"> Оформити замовлення</Link>
+            <Link to="/contact"> Контакти</Link>
         </div>  
     </nav>
   )
