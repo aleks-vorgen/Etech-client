@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const NavbarHeader = () => {
   return (
-    <div className='px-5'>
+    <div className='text-xl'>
         <div>
             <Link to="/"> Головна</Link> 
             <Link to="/checkout"> Оформити замовлення</Link>

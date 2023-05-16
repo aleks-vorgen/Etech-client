@@ -30,6 +30,7 @@ const ProductSearch = () => {
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);
+    navigate(`/product/${product.id}`);
   };
 
   const handleInputChange = (e) => {
