@@ -1,39 +1,31 @@
 import React from 'react'
-import Coupon from '../images/HeaderImages/coupon.svg'
-import Refund from '../images/HeaderImages/refund.svg'
-import Shipping from '../images/HeaderImages/shipping.svg'
-import ProductSearchBar from '../ui/ProductSearch'
+import ProductSearch from '../ui/ProductSearch'
+import { Link } from 'react-router-dom'
+import NavbarHeader from '../ui/NavbarHeader'
 
 
 const Header = () => {
   return (
     <>
-        <div className='max-w-{20px} h-10 bg-blue mb-10 text-center pt-2 text-white underline weight-normal text-[13px] '>
-            <h1>Отримайте щоденну знижку на покупки від 1000 гривень! Оновлення акції кожен день!</h1>
-        </div>
-
-        <div className=' w-[1100px] h-[100px] bg-black mb-[50px] m-auto'>
-            <div className='flex items-center justify-center uppercase text-[11px] text-center weight-normal tracking-[0.01rem] '> 
-                <><img src={Refund} alt="RefundHeader" /> <h1 className='mr-[35px] ml-2'>Повернення протягом 30 днів</h1></>
-                <><img src={Shipping} alt="ShippingHeader" /> <h1 className='mr-[35px] ml-2'>безкоштовна доставка</h1></>
-                <><img src={Coupon} alt="CouponHeader" /> <h1 className='ml-2'>Купон на 500 грн. кожному</h1></>
+    <nav>
+        <div>
+            <div className='max-w-6xl flex justify-center'>
+                <div className = "text-[#DB4F35] font-[900] text-[48px] leading-[61.7px] tracking-[0.05em]">
+                    <Link to = "/">
+                        <span>e-tech</span>
+                    </Link>
+                </div>
+                <div className='box-border rounded-[3px] border-[1px solid #DCDCDC]'>
+                    <ProductSearch />
+                </div>
             </div>
-
-            <div className='w-[1110px] mx-auto flex '> 
-                <h1 className=' text-orange font-black leading-[50px] text-[48px]'> e-tech</h1>
-                <ProductSearchBar />
-
+            <div className='bg-blue h-[55px]'>
+                <NavbarHeader />
             </div>
-
-        </div>
-
-        <div className='bg-blue h-[55px]'>
-
-        </div>
+        </div>   
+    </nav> 
     </>
   )
 }
 
 export default Header
-
- 
