@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
-import ProductCard from "./components/Products/ProductCard";
 
 const ProductSearch = () => {
     const [query, setQuery] = useState('');
     const [products, setProducts] = useState([]);
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    const navigate = useNavigate();
 
     const getData = async (e) => {
         e.preventDefault();
@@ -28,11 +25,6 @@ const ProductSearch = () => {
         }
     };
 
-    const handleProductClick = (product) => {
-        setSelectedProduct(product);
-        navigate(`/product/${product.id}`);
-    };
-
     const handleInputChange = (e) => {
         const query = e.target.value;
         setQuery(query);
@@ -42,48 +34,39 @@ const ProductSearch = () => {
     };
 
     return (
-        <div className='mx-auto my-5 w-2/3'>
-            <form onSubmit={getData}>
+        <div className='relative mx-auto my-5 w-2/3'>
+            <form onSubmit={getData} className='flex'>
                 <label htmlFor="default-search"
                        className="mb-2 text-sm font-medium text-gray-900 sr-only">
                     Search
                 </label>
-                <div className='relative'>
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"
-                             stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </div>
-                    <input type="text"
-                           id="default-search"
-                           className="block w-full p-3 pl-10 text-black border border-gray-300 rounded-lg bg-gray-50"
-                           placeholder="Search Mockups, Logos..."
-                           onChange={handleInputChange}
-                           required
-                    />
-                    <button type="submit"
-                            className="text-black absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-[black] font-medium rounded-lg px-4 py-2">
-                        Search
-                    </button>
-                </div>
+                <input type="text"
+                       id="default-search"
+                       className="block w-full mr-5 px-5 py-2 text-black rounded-sm drop-shadow z-10 active:border-none"
+                       placeholder="Знайдеться все, що потрібно..."
+                       onChange={handleInputChange}
+                       required
+                />
+                <button type="submit"
+                        className="text-white bg-blue rounded-sm px-3 py-2 drop-shadow">
+                    <svg className="w-5 h-5 text-white" fill="none"
+                         stroke="currentColor" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
             </form>
 
             {products.length > 0 && (
-                <div className='absolute border-l border-r border-b -mt-2 p-3 w-full'>
+                <div className='absolute border-l border-r border-b -mt-2 p-3 w-[91.6%] z-0'>
                     {products.map((product) => (
-                        <ProductCard key={product.id}
-                                     product={product}
-                                     onClick={handleProductClick(product)} />
+                        <Link to={`/products/${product.id}`}
+                              key={product.id}
+                              className='border-b'>
+                            <p>Title: {product.title}</p>
+                            <p>Price: {product.price}</p>
+                        </Link>
                     ))}
-                </div>
-            )}
-
-            {selectedProduct && (
-                <div>
-                    <h2>Selected Product</h2>
-                    <ProductCard productId={selectedProduct.id} />
                 </div>
             )}
         </div>
