@@ -34,7 +34,7 @@ const ProductSearch = () => {
     };
 
     return (
-        <div className='mx-auto my-5 w-2/3'>
+        <div className='mx-auto my-5 w-2/3 relative'>
             <form onSubmit={getData}>
                 <label htmlFor="default-search"
                        className="mb-2 text-sm font-medium text-gray-900 sr-only">
@@ -63,10 +63,12 @@ const ProductSearch = () => {
             </form>
 
             {products.length > 0 && (
-                <div>
-                    {products.map((product) => (
-                        <Product product={product} />
-                    ))}
+                <div className='absolute border-l border-r border-b -mt-2 p-3 w-full'>
+                    <div>
+                        {products.map((product) => (
+                            <Product key={product.id} product={product}/>
+                        ))}
+                    </div>
                 </div>
             )}
         </div>
