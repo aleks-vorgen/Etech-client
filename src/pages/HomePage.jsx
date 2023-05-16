@@ -24,7 +24,7 @@ export function HomePage() {
   }
 
   return (
-      <div className='w-[1000px] mx-auto'>
+      <div className='w-[1110px] mx-auto'>
         <h2>Головна</h2>
         <button
             style={{border: '1px solid black', padding: '5px 10px', marginRight: '5px'}}

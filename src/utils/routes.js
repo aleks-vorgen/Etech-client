@@ -1,5 +1,5 @@
-// import ProductCard from "../components/Products/ProductCard";
+import ProductCard from "../components/Products/ProductCard";
 
-// export const routes = [
-//     { link: 'product/:id', component: <ProductCard /> }
-// ];
+export const routes = [
+    { link: 'product/:id', component: ProductCard }
+];

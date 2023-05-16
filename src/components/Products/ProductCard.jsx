@@ -1,38 +1,43 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
+import {useParams} from "react-router-dom";
 
 const ProductCard = () => {
-  const { id } = useParams();
-  const [product, setProduct] = useState(null);
+    const {id} = useParams();
+    const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${id}`);
-        setProduct(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${id}`)
+                setProduct(response.data)
+                l
+            } catch (e) {
+                console.log(e);
+            }
+        };
 
-    fetchProduct();
-  }, [id]);
+        getData();
+    }, [id])
 
-  if (!product) {
-    return <div>Loading...</div>;
-  }
 
-  return (
-    <div>
-      <h2>{product.title}</h2>
-      <p>{product.price}</p>
-      <p>{product.producer}</p>
-      <p>{product.description}</p>
-      <img src={product.imgPath} alt={product.title} />
-      {/* Остальные свойства продукта */}
-    </div>
-  );
+    if (!product) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <div className='w-[1110px] mx-auto flex justify-center mt-20'>
+            <div className='mr-10'>
+                <img src={product.imgPath} alt={product.title} className=''/>
+            </div>
+            <div className='ml-10'>
+                <h2 className='font-[Montserrat] font-[700] text-[18px]'>{product.title}</h2>
+                <p>Price: {product.price}</p>
+                <p>Producer: {product.producer}</p>
+            </div>
+            {/* Render other product details here */}
+        </div>
+    );
 };
 
 export default ProductCard;
