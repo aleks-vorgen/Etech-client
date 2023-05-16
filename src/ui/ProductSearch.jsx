@@ -1,74 +1,62 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import ProductCard from '../components/Products/ProductCard';
 
 const ProductSearch = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
   const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const navigate = useNavigate();
+  const [searchResults, setSearchResults] = useState([]);
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-
+  const handleSearch = async () => {
     try {
-      if (!searchQuery.trim()) {
-        setProducts([]);
-        return;
-      }
-
-      const response = await axios.get('https://etech-5fydkirpga-lm.a.run.app/products/all', {
-        params: { title: searchQuery, producer: searchQuery }
-      });
-
+      const response = await axios.get('https://etech-5fydkirpga-lm.a.run.app/products/all');
       setProducts(response.data);
     } catch (error) {
-      console.error('Error fetching products:', error);
+      console.log(error);
     }
   };
 
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
-    navigate(`/product/${product.id}`);
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
   };
 
-  const handleInputChange = (e) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-    if (!query.trim()) {
-      setProducts([]);
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const results = products.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(results);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchSubmit(e);
     }
   };
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearchSubmit}>
         <input
           type="text"
-          value={searchQuery}
+          value={searchTerm}
           onChange={handleInputChange}
-          placeholder="Search for a product"
+          onKeyDown={handleKeyDown} // Обработчик нажатия клавиши
         />
+        <button onClick={handleSearch} type="submit">Search</button>
       </form>
 
-      {products.length > 0 && (
-        <div>
-          {products.map((product) => (
-            <div key={product.id} onClick={() => handleProductClick(product)}>
-              <h3>{product.title}</h3>
-              <p>Price: {product.price}</p>
-              <p>Producer: {product.producer}</p>
-            </div>
+      {searchResults.length > 0 && (
+        <ul>
+          {searchResults.map((product) => (
+            <li key={product.id}>
+              <Link to={`/product/${product.id}`}>
+                <div>{product.title}</div>
+                <div>{product.price}</div>
+              </Link>
+            </li>
           ))}
-        </div>
-      )}
-
-      {selectedProduct && (
-        <div>
-          <h2>Selected Product</h2>
-          <ProductCard productId={selectedProduct.id} />
-        </div>
+        </ul>
       )}
     </div>
   );
