@@ -1,26 +1,29 @@
 import React from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import { AuthPage } from './pages/AuthPage'
 import { HomePage } from './pages/HomePage'
-import { ContactPage } from './pages/ContactPage'
-import {ShippingPage } from './pages/ShippingPage'
-import Header from './components/Header'
+import { ProductsPage } from './pages/ProductsPage'
+import { Layout } from './components/Layout'
+import {ContactPage} from './pages/ContactPage'
+import {ShippingPage} from './pages/ShippingPage'
+
 
 function App() {
   
 
   return (
     <>
-        <Header />
       <Routes>
-        <Route path='/' element={ <HomePage /> } />
-        <Route path='/auth' element={ <AuthPage /> } />
-        <Route path='/contact' element={ <ContactPage /> } />
-        <Route path='/shipping' element={ <ShippingPage /> } />
+        <Route path='/' element={<Layout />}>
+            <Route index element={ <HomePage /> } />
+            <Route path='/checkout' element={ <ShippingPage /> } />
+            <Route path='/contact' element={ <ContactPage /> } />
+        </Route>
       </Routes>
     </>
   )
 }
+import ContactPage from './pages/ContactPage'
+import ShippingPage from './pages/ShippingPage'
 
 export default App

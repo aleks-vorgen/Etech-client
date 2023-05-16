@@ -2,7 +2,7 @@ import React from 'react'
 import Coupon from '../images/HeaderImages/coupon.svg'
 import Refund from '../images/HeaderImages/refund.svg'
 import Shipping from '../images/HeaderImages/shipping.svg'
-import SearchBar from '../ui/SearchBar'
+import ProductSearchBar from '../ui/ProductSearch'
 
 
 const Header = () => {
@@ -21,7 +21,7 @@ const Header = () => {
 
             <div className='w-[1110px] mx-auto flex '> 
                 <h1 className=' text-orange font-black leading-[50px] text-[48px]'> e-tech</h1>
-                <SearchBar />
+                <ProductSearchBar />
 
             </div>
 

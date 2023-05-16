@@ -5,3 +5,5 @@ export function ShippingPage() {
     <div>Доставка та оплата</div>
   )
 }
+
+export default ShippingPage
