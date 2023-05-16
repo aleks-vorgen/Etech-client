@@ -6,26 +6,26 @@ const ProductSearch = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const handleSearch = async () => {
+  const handleSearch = async (e) => {
+    e.preventDefault();
     try {
       if (searchQuery.trim() === '') {
         setProducts([]);
-        return;
+        return
       }
 
-      const response = await axios.get('https://etech-5fydkirpga-lm.a.run.app/products/all');
+      const response = await axios.get('https://etech-5fydkirpga-lm.a.run.app/products/all', {
+        params: {
+          title: searchQuery
+          //TODO producer: searchQuery
+        }
+      });
       const filteredProducts = response.data.filter((product) =>
         product.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setProducts(filteredProducts);
     } catch (error) {
       console.error('Error fetching products:', error);
-    }
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch();
     }
   };
 
@@ -46,13 +46,14 @@ const ProductSearch = () => {
 
   return (
     <div>
-      <input 
+      <form onSubmit={handleSearch}>
+      <input
         type="text"
         value={searchQuery}
         onChange={handleInputChange}
-        onKeyPress={handleKeyPress}
         placeholder="Search for a product"
       />
+      </form>
 
       {selectedProduct && (
         <div>

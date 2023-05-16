@@ -5,7 +5,6 @@ import axios from 'axios'
 export function HomePage() {
   const getProductData = () => {
     axios.get('https://etech-5fydkirpga-lm.a.run.app/products/all')
-        //axios.get('http://localhost:8080/categories/all')
         .then(res => {
           console.log(res.data)
         })
@@ -30,7 +29,7 @@ export function HomePage() {
         <button
             style={{border: '1px solid black', padding: '5px 10px', marginRight: '5px'}}
             onClick={getProductData}>
-          Get Category list log
+          Get Product list log
         </button>
         <button
             style={{border: '1px solid black', padding: '5px 10px', marginLeft: '5px'}}
