@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export function ProductCard ({ productId }) {
+const ProductCard = ({ productId }) => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {

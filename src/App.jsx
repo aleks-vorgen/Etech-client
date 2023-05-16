@@ -5,7 +5,7 @@ import { HomePage } from './pages/HomePage'
 import { Layout } from './components/Layout'
 import {ContactPage} from './pages/ContactPage'
 import {ShippingPage} from './pages/ShippingPage'
-import {ProductCard} from './components/Products/ProductCard'
+import ProductCard from './components/Products/ProductCard'
 
 
 
