@@ -7,6 +7,7 @@ import {ContactPage} from './pages/ContactPage'
 import {ShippingPage} from './pages/ShippingPage'
 import ProductCard from './components/Products/ProductCard'
 import {ProductsPage} from "./pages/ProductsPage.jsx";
+import ErrorPage from './pages/ErrorPage'
 
 
   
@@ -21,6 +22,7 @@ function App () {
             <Route path='/checkout' element={ <ShippingPage /> } />
             <Route path='/contact' element={ <ContactPage /> } />
             <Route path='/products/:id' element={<ProductCard />} />
+            <Route path='/error' element={<ErrorPage />} />
         </Route>
       </Routes>
     </>
