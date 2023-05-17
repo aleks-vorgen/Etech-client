@@ -2,7 +2,7 @@ import React from 'react'
 
 export function ContactPage() {
   return (
-    <div>Контакти</div>
+    <div id="contact">Контакти</div>
   )
 }
 

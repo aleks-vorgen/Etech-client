@@ -2,7 +2,7 @@ import React from 'react'
 
 export function ShippingPage() {
   return (
-    <div>Доставка та оплата</div>
+    <div id="checkout">Доставка та оплата</div>
   )
 }
 
