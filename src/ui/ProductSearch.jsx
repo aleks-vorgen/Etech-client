@@ -8,7 +8,6 @@ const ProductSearch = () => {
 
     const getData = async (e) => {
         e.preventDefault();
-
         try {
             if (!query.trim()) {
                 setProducts([]);
@@ -26,8 +25,7 @@ const ProductSearch = () => {
     };
 
     const handleInputChange = (e) => {
-        const query = e.target.value;
-        setQuery(query);
+        setQuery(e.target.value);
         if (!query.trim()) {
             setProducts([]);
         }
@@ -36,16 +34,11 @@ const ProductSearch = () => {
     return (
         <div className='relative mx-auto my-5 w-2/3'>
             <form onSubmit={getData} className='flex'>
-                <label htmlFor="default-search"
-                       className="mb-2 text-sm font-medium text-gray-900 sr-only">
-                    Search
-                </label>
                 <input type="text"
                        id="default-search"
                        className="block w-full mr-5 px-5 py-2 text-black rounded-sm drop-shadow z-10 active:border-none"
                        placeholder="Знайдеться все, що потрібно..."
                        onChange={handleInputChange}
-                       required
                 />
 
                 <button type="submit"
@@ -60,7 +53,7 @@ const ProductSearch = () => {
             {products.length > 0 && (
                 <div className='absolute -mt-2 -ml-8 p-3 w-full'>
                     {products.map((product) => (
-                        <Link to={`/products/${product.id}`}
+                        <Link to={`/products/id=${product.id}`}
                               key={product.id}
                               className='block border-b bg-black/30 px-5 py-2 backdrop-blur-sm'>
                             <p>Title: {product.title}</p>
