@@ -3,8 +3,9 @@ import axios from 'axios'
 
 
 export function HomePage() {
+  
   const getProductData = () => {
-    axios.get('https://etech-5fydkirpga-lm.a.run.app/products/all')
+    axios.get('https://etech-5fydkirpga-lm.a.run.app/categories/all')
         .then(res => {
           console.log(res.data)
         })
@@ -14,7 +15,7 @@ export function HomePage() {
   }
 
   function getUserData() {
-    axios.get('https://etech-5fydkirpga-lm.a.run.app/users/all')
+    axios.get('https://etech-5fydkirpga-lm.a.run.app/products/all')
         .then(res => {
           console.log(res.data)
         })

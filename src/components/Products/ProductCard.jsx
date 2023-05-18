@@ -1,3 +1,5 @@
+
+//Карточка подробного описания товара, с отзывами и характеристиками
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
@@ -22,11 +24,11 @@ const ProductCard = () => {
 
 
     if (!product) {
-        return <div>Loading...</div>;
+        return null;
     }
 
     return (
-        <div className='w-[1110px] mx-auto flex justify-center mt-20'>
+        <div className='w-[1110px] mx-auto flex justify-center mt-20 bg-black'>
             <div className='mr-10'>
                 <img src={product.imgPath} alt={product.title} className=''/>
             </div>
