@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Category from '../components/Category/Category';
+import Category from '../components/categories/Category';
 
 
 export function HomePage() {

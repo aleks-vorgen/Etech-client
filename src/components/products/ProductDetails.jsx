@@ -2,14 +2,15 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
 
-const ProductCard = () => {
+//НЕ МЕНЯТЬ
+const ProductDetails = () => {
     const {id} = useParams();
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${id}`)
+                const response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${id}`);
                 setProduct(response.data);
             } catch (e) {
                 console.log(e);
@@ -25,7 +26,7 @@ const ProductCard = () => {
     }
 
     function getPriceWithDiscount(price, discount) {
-        return discount !== 0 ? price - price / 100 * discount: price;
+        return discount !== 0 ? price - price / 100 * discount : price;
     }
 
     return (
@@ -40,7 +41,7 @@ const ProductCard = () => {
                 <p>Ціна зі знижкою: {getPriceWithDiscount(product.price, product.discount)}</p>
                 <p>Producer: {product.producer}</p>
                 <p>Category: {product.category.parentCategory !== null ?
-                    product.category.parentCategory.title + ' \\ ' + product.category.title :
+                    product.category.parentCategory.title + ' \ ' + product.category.title :
                     product.category.title}</p>
                 <p>Description: {product.description}</p>
 
@@ -50,4 +51,4 @@ const ProductCard = () => {
     );
 };
 
-export default ProductCard;
+export default ProductDetails;
