@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Category from '../components/Category/Category';
 
 
 export function HomePage() {
@@ -24,6 +25,7 @@ export function HomePage() {
   }
 
   return (
+
       <div className='w-[1110px] mx-auto'>
         <h2>Головна</h2>
         <button
@@ -36,6 +38,8 @@ export function HomePage() {
             onClick={getUserData}>
           Get User list log
         </button>
+
+        <Category />
       </div>
   )
 }
