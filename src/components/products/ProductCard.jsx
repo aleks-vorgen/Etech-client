@@ -11,14 +11,14 @@ const ProductCard = ({ product }) => {
 
   return (
     <Link to={`/products/id/id=${product.id}`}>
-      <div className="text-start m-10">
-        <div className="w-[200px] h-[260px] border-2 border-black/20 rounded-[3px]">
-          <div className="w-[130px] h-[140px] mx-auto items-center justify-center pt-2 ">
+      <div className="text-start mt-10 mr-[40px]">
+        <div className="w-[200px] h-[280px] border-2 border-black/20 rounded-[3px] p-4">
+          <div className="w-[120px] h-[130px] mx-auto flex items-center justify-center mt-4">
             <img src={image} alt={product.imgPath} />
           </div>
-          <div className="pt-[30px] pl-2">
-            <h3>{product.title.slice(0, 40)} ...</h3>
-            <p>Price: {product.price}</p>
+          <div className="mt-[20px] py-2 ">
+            <h3 className="text-[14px]">{product.title.slice(0,40)} ...</h3>
+            <p className="font-[700] text-[18px] my-2">{product.price} ₴</p>
           </div>
         </div>
       </div>
