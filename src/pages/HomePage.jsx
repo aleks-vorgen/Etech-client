@@ -40,6 +40,7 @@ export function HomePage() {
         </button>
 
         <Category />
+        
       </div>
   )
 }
