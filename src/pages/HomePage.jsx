@@ -3,6 +3,7 @@ import axios from 'axios'
 import Category from '../components/categories/Category';
 
 
+
 export function HomePage() {
   
   const getProductData = () => {
@@ -41,7 +42,6 @@ export function HomePage() {
         </button>
 
         <Category />
-        
       </div>
   )
 }
