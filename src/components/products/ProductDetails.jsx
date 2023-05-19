@@ -7,7 +7,6 @@ import {useParams} from "react-router-dom";
 const ProductDetails = () => {
     const {id} = useParams();
     const [product, setProduct] = useState(null);
-
     useEffect(() => {
         const getData = async () => {
             try {
@@ -28,25 +27,39 @@ const ProductDetails = () => {
         return discount !== 0 ? price - price / 100 * discount : price;
     }
 
+    function getSavedPrice(price, discount) {
+        return price - getPriceWithDiscount(price, discount)
+    }
+
+
+
+
+
     return (
         <div className='w-[1110px] mx-auto flex justify-center mt-20'>
-            <div className='mr-10'>
-                <img src={`http://localhost:8080/images/product/${product.imgPath}`} alt={product.title} className=''/>
+            <div className='mr-10 w-[600px] h-[800px]'>
+                <img src={`https://etech-5fydkirpga-lm.a.run.app/images/${product.imgPath}`} alt={product.title} />
             </div>
             <div className='ml-10'>
-                <h2 className='font-[Montserrat] font-[700] text-[18px]'>{product.title}</h2>
-                <p>Ціна: {product.price}</p>
-                <p>Знижка: {product.discount}%</p>
-                <p>Ціна зі знижкою: {getPriceWithDiscount(product.price, product.discount)}</p>
-                <p>Producer: {product.producer}</p>
-                <p>Category: {product.category.parentCategory !== null ?
-                    product.category.parentCategory.title + ' \ ' + product.category.title :
-                    product.category.title}</p>
-                <p>Description: {product.description}</p>
+                <h2 className='font-[700] text-[24px] pb-[40px]'>{product.title}</h2>
+                <p className={product.discount > 0 ? 'font-[400] text-[16px] text-black/80 line-through ' : "font-[700] text-[24px]"}>{product.price} ₴</p>
+                <div className='flex gap-4 items-baseline '>
+                <p className={product.discount >= 1 ? 'font-[700] text-[28px] text-[#f84147]' : 'text-black'}>{getPriceWithDiscount(product.price, product.discount)} ₴</p>
+                <p className={product.discount >= 1 ? 'font-[700] text-[18px] text-black/80 ' : 'text-black'}>{getSavedPrice(product.price, product.discount)} ₴</p>
+                </div>
+                <p>Виробник: {product.producer}</p>
+                <p>Категорія: {product.category.title}</p>
+                <p>Усе про товар: {product.description}</p>
+                
 
             </div>
             {/* Render other product details here */}
         </div>
+
+
+        // Нижняя плашка Швидко доставляємо https://jabko.ua/iphone/apple-iphone-14-pro-max/apple-iphone-14-pro-max-128gb--blue-
+        // <CхожіТовари />
+
     );
 };
 
