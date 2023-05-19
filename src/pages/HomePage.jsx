@@ -14,7 +14,7 @@ export function HomePage() {
             const formData = new FormData();
             formData.append('file', selectedFile);
 
-            axios.post('http://localhost:8080/images/product', formData)
+            axios.post('https://etech-5fydkirpga-lm.a.run.app/images/product', formData)
                 .then((response) => {
                     console.log(response.status);
                     // Добавьте здесь необходимую логику после успешной загрузки файла

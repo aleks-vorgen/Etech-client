@@ -12,7 +12,7 @@ const ProductList = () => {
             try {
                 let response;
                 if (category === null )
-                    response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${category}`);
+                    response = await axios.get(`http://etech-5fydkirpga-lm.a.run.app/products/${category}`);
                 else
                     response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/all`)
                 setProducts(response.data);

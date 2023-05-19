@@ -11,9 +11,8 @@ const ProductDetails = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                //const response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${id}`);
-                const responseProduct = await axios.get(`http://localhost:8080/products/${id}`);
-                setProduct(responseProduct.data);
+                const response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${id}`);
+                setProduct(response.data);
             } catch (e) {
                 console.log(e);
             }
