@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
@@ -17,7 +18,7 @@ const Footer = () => {
               sample text
             </span>
           </div>
-          <div className="grid border-l-2 border-white/30 justify-center text-center">
+          <div className="grid border-l-2 border-white/30 justify-center text-start pt-2">
             <span className="text-lg font-semibold text-16 uppercase">Про компанию</span>
             <Link to="/error" className="block" onClick={() => scroll.scrollTo('error')}>Доставка</Link>
             <Link to="/checkout" className="block" onClick={() => scroll.scrollTo('checkout')}>Оплата</Link>
@@ -27,7 +28,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="justify-center flex items-center border-t-2 border-white/60 py-6">
-          <span className="text-white/70">(c) 2022 - Наш найкращий магазин</span>
+          <span className="text-white/70">© {new Date().getFullYear()} - Наш найкращий магазин</span>
         </div>
       </div>
     </footer>
@@ -35,3 +36,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
