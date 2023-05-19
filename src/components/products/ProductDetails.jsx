@@ -31,7 +31,7 @@ const ProductDetails = () => {
     return (
         <div className='w-[1110px] mx-auto flex justify-center mt-20'>
             <div className='mr-10'>
-                <img src={`http://localhost:8080/images/product/${product.imgPath}`} alt={product.title} className=''/>
+                <img src={`https://etech-5fydkirpga-lm.a.run.app/images/product/${product.imgPath}`} alt={product.title} className=''/>
             </div>
             <div className='ml-10'>
                 <h2 className='font-[Montserrat] font-[700] text-[18px]'>{product.title}</h2>
