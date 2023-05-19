@@ -4,7 +4,6 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
 
-//НЕ МЕНЯТЬ
 const ProductDetails = () => {
     const {id} = useParams();
     const [product, setProduct] = useState(null);
@@ -18,10 +17,8 @@ const ProductDetails = () => {
                 console.log(e);
             }
         };
-
         getData();
     }, [id])
-
 
     if (!product) {
         return null;
@@ -34,7 +31,7 @@ const ProductDetails = () => {
     return (
         <div className='w-[1110px] mx-auto flex justify-center mt-20'>
             <div className='mr-10'>
-                <img src={product.imgPath} alt={product.title} className=''/>
+                <img src={`http://localhost:8080/images/product/${product.imgPath}`} alt={product.title} className=''/>
             </div>
             <div className='ml-10'>
                 <h2 className='font-[Montserrat] font-[700] text-[18px]'>{product.title}</h2>

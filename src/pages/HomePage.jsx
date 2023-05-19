@@ -1,49 +1,44 @@
-import React from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 import Category from '../components/categories/Category';
 
-
-
 export function HomePage() {
-  
-  const getProductData = () => {
-    axios.get('https://etech-5fydkirpga-lm.a.run.app/categories/all')
-        .then(res => {
-          console.log(res.data)
-        })
-        .catch(error => {
-          console.log(error);
-        });
-  }
+    const [selectedFile, setSelectedFile] = useState(null);
 
-  function getUserData() {
-    axios.get('https://etech-5fydkirpga-lm.a.run.app/products/all')
-        .then(res => {
-          console.log(res.data)
-        })
-        .catch(error => {
-          console.log(error)
-        })
-  }
+    const handleFileChange = (event) => {
+        setSelectedFile(event.target.files[0]);
+    };
 
-  return (
+    const handleUpload = () => {
+        if (selectedFile) {
+            const formData = new FormData();
+            formData.append('file', selectedFile);
 
-      <div className='w-[1110px] mx-auto'>
-        <h2>Головна</h2>
-        <button
-            style={{border: '1px solid black', padding: '5px 10px', marginRight: '5px'}}
-            onClick={getProductData}>
-          Get Product list log
-        </button>
-        <button
-            style={{border: '1px solid black', padding: '5px 10px', marginLeft: '5px'}}
-            onClick={getUserData}>
-          Get User list log
-        </button>
+            axios.post('https://etech-5fydkirpga-lm.a.run.app/images/product', formData)
+                .then((response) => {
+                    console.log(response.status);
+                    // Добавьте здесь необходимую логику после успешной загрузки файла
+                })
+                .catch((error) => {
+                    console.error('Error uploading file:', error);
+                    // Добавьте здесь необходимую обработку ошибок
+                });
+        }
+    };
 
-        <Category />
-      </div>
-  )
+    return (
+        <div className='w-[1110px] mx-auto'>
+            <h2>Головна</h2>
+
+            <Category/>
+
+            <div>
+                <input type="file" onChange={handleFileChange}/>
+                <button onClick={handleUpload}>Upload</button>
+            </div>
+
+        </div>
+    )
 }
 
 export default HomePage
