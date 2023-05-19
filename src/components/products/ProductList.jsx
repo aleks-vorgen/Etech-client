@@ -11,8 +11,8 @@ const ProductList = () => {
         const fetchProducts = async () => {
             try {
                 let response;
-                if (category === null )
-                    response = await axios.get(`http://etech-5fydkirpga-lm.a.run.app/products/${category}`);
+                if (category !== undefined )
+                    response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${category}`);
                 else
                     response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/all`)
                 setProducts(response.data);
@@ -25,7 +25,7 @@ const ProductList = () => {
     }, [category]);
 
     return (
-        <div className="flex w-[1110px] mx-auto py-4">
+        <div className="mx-auto w-[1110px] gap-4 my-10 grid grid-cols-4">
             {products.map((product) => (
                 <ProductCard key={product.id} product={product}/>
             ))}

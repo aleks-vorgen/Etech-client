@@ -3,6 +3,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
+import ProductCard from './ProductCard';
+import { get } from 'react-scroll/modules/mixins/scroller';
 
 const ProductDetails = () => {
     const {id} = useParams();
@@ -37,21 +39,19 @@ const ProductDetails = () => {
 
     return (
         <div className='w-[1110px] mx-auto flex justify-center mt-20'>
-            <div className='mr-10 w-[600px] h-[800px]'>
-                <img src={`https://etech-5fydkirpga-lm.a.run.app/images/product/${product.imgPath}`} alt={product.title} className=''/>
+            <div className='mr-10 min-w-[40%] p-5 shadow-lg '>
+                <img src={`https://etech-5fydkirpga-lm.a.run.app/images/product/${product.imgPath}`} alt={product.title} className='w-full'/>
             </div>
             <div className='ml-10'>
                 <h2 className='font-[700] text-[24px] pb-[40px]'>{product.title}</h2>
                 <p className={product.discount > 0 ? 'font-[400] text-[16px] text-black/80 line-through ' : "font-[700] text-[24px]"}>{product.price} ₴</p>
                 <div className='flex gap-4 items-baseline '>
-                <p className={product.discount >= 1 ? 'font-[700] text-[28px] text-[#f84147]' : 'text-black'}>{getPriceWithDiscount(product.price, product.discount)} ₴</p>
-                <p className={product.discount >= 1 ? 'font-[700] text-[18px] text-black/80 ' : 'text-black'}>{getSavedPrice(product.price, product.discount)} ₴</p>
+                <p className={product.discount >= 1 ? 'font-[700] text-[28px] text-[#f84147]' : 'hidden'}>{getPriceWithDiscount(product.price, product.discount)} ₴</p>
+                <p className={product.discount >= 1 ? 'font-[700] text-[18px] text-black/80 ' : 'hidden'}>{getSavedPrice(product.price, product.discount)} ₴</p>
                 </div>
                 <p>Виробник: {product.producer}</p>
                 <p>Категорія: {product.category.title}</p>
                 <p>Усе про товар: {product.description}</p>
-                
-
             </div>
             {/* Render other product details here */}
         </div>
