@@ -53,7 +53,7 @@ const ProductSearch = () => {
             {products.length > 0 && (
                 <div className='absolute -mt-2 -ml-8 p-3 w-full'>
                     {products.map((product) => (
-                        <Link to={`/products/id=${product.id}`}
+                        <Link to={`/products/id/id=${product.id}`}
                               key={product.id}
                               className='block border-b bg-black/30 px-5 py-2 backdrop-blur-sm'>
                             <p>Title: {product.title}</p>
