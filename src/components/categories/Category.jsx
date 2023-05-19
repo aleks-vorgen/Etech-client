@@ -77,18 +77,18 @@ const CategoryList = () => {
             {rootCategories.map((category) => (
                 <li 
                     key={category.id}
-                    onMouseEnter={() => handleMouseEnter(category.id)}
+                    onClick={() => handleMouseEnter(category.id)}
                     onMouseLeave={() => handleMouseLeave(category.id)}
                     className={activeCategoryIds.includes(category.id) ? "active border-b-4 border-black/30" : "border-b-4 border-black/30"}
                 >
                     <div
                         onClick={() => handleClick(category)}
-                        className={category.parentCategory ? "parent-category" : "pb-[20px]"}
+                        className={category.parentCategory ? "child-category" : "pb-[20px]"}
                     >
                         {category.parentCategory ? (
-                            category.title
-                        ) : (
                             <Link to={`/products/${category.title}`}>{category.title}</Link>
+                        ) : (
+                            category.title
                         )}
                     </div>
                     {activeCategoryIds.includes(category.id) &&

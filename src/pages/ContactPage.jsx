@@ -21,13 +21,13 @@ export function ContactPage() {
                 <div>
                     <p className='flex gap-2 mt-5 ml-6'>
                         <a href='https://instagram.com' target='_blank' className=''>
-                            <img src="/src/images/contacts/socials/instagram.png" alt="Instagram"/>
+                            <img src="/src/images/contacts/socials/instagram.svg" alt="Instagram"/>
                         </a>
                         <a href='https://telegram.org' target='_blank'>
-                            <img src="/src/images/contacts/socials/telegram.png" alt="Telegram"/>
+                            <img src="/src/images/contacts/socials/telegram.svg" alt="Telegram"/>
                         </a>
                         <a href='https://facebook.com' target='_blank'>
-                            <img src="/src/images/contacts/socials/facebook.png" alt="Facebook"/>
+                            <img src="/src/images/contacts/socials/facebook.svg" alt="Facebook"/>
                         </a>
                     </p>
                 </div>

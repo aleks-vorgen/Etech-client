@@ -10,11 +10,11 @@ const ProductList = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get(
-                    `https://etech-5fydkirpga-lm.a.run.app/products/${category}`
-                );
-                console.log(category)
-                console.log(response.data)
+                let response = '';
+                if (category === null )
+                    response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${category}`);
+                else
+                    response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/all`)
                 setProducts(response.data);
             } catch (error) {
                 console.log(error);

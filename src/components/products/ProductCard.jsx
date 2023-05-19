@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
       <div className="text-start m-10">
         <div className="w-[200px] h-[260px] border-2 border-black/20 rounded-[3px]">
           <div className="w-[130px] h-[140px] mx-auto items-center justify-center pt-2 ">
-            <img src={image} alt={product.imgPath} />
+            <img src={`http://localhost:8080/images/product/${product.imgPath}`} alt={product.imgPath} />
           </div>
           <div className="pt-[30px] pl-2">
             <h3>{product.title.slice(0, 40)} ...</h3>
