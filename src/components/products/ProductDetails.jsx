@@ -32,7 +32,7 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className='w-[1110px] mx-auto flex justify-center mt-20 bg-black'>
+        <div className='w-[1110px] mx-auto flex justify-center mt-20'>
             <div className='mr-10'>
                 <img src={product.imgPath} alt={product.title} className=''/>
             </div>
