@@ -12,6 +12,9 @@ export default {
       'black': '#323232',
       'white': '#FFFFFF'
     },
+    fontFamily: {
+      sans: ['Montserrat', 'sans-serif'],
+    },
   },
   plugins: [],
 }

@@ -5,12 +5,12 @@ import ProductCard from "./ProductCard.jsx";
 
 const ProductList = () => {
     const {category} = useParams();
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                let response = '';
+                let response;
                 if (category === null )
                     response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${category}`);
                 else
@@ -25,8 +25,8 @@ const ProductList = () => {
     }, [category]);
 
     return (
-        <div className="product-list">
-            {products.map(product => (
+        <div className="flex w-[1110px] mx-auto py-4">
+            {products.map((product) => (
                 <ProductCard key={product.id} product={product}/>
             ))}
         </div>
