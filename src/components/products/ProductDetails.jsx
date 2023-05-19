@@ -1,3 +1,5 @@
+
+//Карточка подробного описания товара, с отзывами и характеристиками
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
@@ -22,7 +24,7 @@ const ProductDetails = () => {
 
 
     if (!product) {
-        return <div>Loading...</div>;
+        return null;
     }
 
     function getPriceWithDiscount(price, discount) {
