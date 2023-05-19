@@ -13,10 +13,11 @@ export function ContactPage() {
                     </p>
                 </div>
                 <div>
-                    <p className='font-[400] text-[14px] leading-[15px] my-5 flex'>
+                    <a href="mailto:kulykov.o@student.sumdu.edu.ua"
+                       className='font-[400] text-[14px] leading-[15px] my-5 flex'>
                         <img src="/src/images/contacts/email.svg" alt=""/>
                         <span className='ml-2'>e_tech@shop.com</span>
-                    </p>
+                    </a>
                 </div>
                 <div>
                     <p className='flex gap-2 mt-5 ml-6'>
