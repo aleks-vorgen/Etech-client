@@ -10,7 +10,6 @@ const CategoryList = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                //const response = await axios.get(server + "/categories/all");
                 const response = await axios.get(server + "/categories/all");
                 setCategories(response.data);
             } catch (error) {
