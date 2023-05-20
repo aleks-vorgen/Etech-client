@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import Category from '../components/categories/Category';
+import Category from '../components/categories/CategoryList.jsx';
+import Carousel from "../ui/Carousel.jsx";
 
 export function HomePage() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -44,12 +45,13 @@ export function HomePage() {
     };
 
     return (
-        <div className='w-[1110px] mx-auto'>
-            <h2>Головна</h2>
+        <div className='w-[1110px] mx-auto my-10'>
+            <div className='flex'>
+            <Category />
+            <Carousel />
+            </div>
 
-            <Category/>
-
-            <div>
+            <div className='mt-96'>
                 <p>Называть id.png (где id - айдишник продукта)</p>
                 <input type="file" onChange={handleFileChange}/>
                 <button onClick={handleUploadProduct}>Upload Product (.png)</button>

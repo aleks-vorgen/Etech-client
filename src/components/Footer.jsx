@@ -5,18 +5,15 @@ import { animateScroll as scroll } from 'react-scroll';
 
 const Footer = () => {
   return (
-    <footer className="bg-blue bottom-0 w-full mt-[100px] max-h-[400px]  text-white">
+    <footer className="bg-blue bottom-0 w-full mt-[100px] text-white">
       <div className="w-[1110px] mx-auto grid gap-8 pt-10 items-center">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           <div className="grid">
-            <span className="text-orange font-bold text-4xl leading-[61.7px]">e-tech</span>
-            <span className="pt-10">
-              Lorem ipsum, sample text
-              Lorem ipsum, sample text Lorem ipsum,
-              sample text Lorem ipsum, sample text
-              Lorem ipsum, sample text Lorem ipsum,
-              sample text
-            </span>
+            <p className="text-orange font-bold text-4xl leading-[61.7px]">e-tech</p>
+            <p className="pt-10">
+              Інтернет магазин електронної техніки,
+              в якому знайдеться все, що потрібно
+            </p>
           </div>
           <div className="grid border-l-2 border-white/30 justify-center text-start pt-2">
             <span className="text-lg font-semibold text-16 uppercase">Про компанию</span>

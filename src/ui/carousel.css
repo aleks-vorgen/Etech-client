@@ -1,0 +1,48 @@
+.carousel {
+    position: relative;
+    @apply min-w-[800px] ml-10
+}
+
+.carousel-items {
+    @apply border border-black/20 w-full rounded-[3px]
+}
+
+.carousel-item {
+    @apply p-5;
+    flex-shrink: 0;
+    transition: transform 0.5s ease;
+    transform: translateX(-100%);
+}
+
+.carousel-item[data-active="true"] {
+    transform: translateX(0);
+}
+
+.carousel-item img {
+    @apply max-h-[300px] mx-auto;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    @apply h-full
+}
+
+.carousel-control {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    @apply w-20
+}
+
+.carousel-control p {
+    font-size: 32px;
+    font-family: Montserrat, sans-serif;
+
+}

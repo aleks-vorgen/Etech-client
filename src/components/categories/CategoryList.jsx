@@ -19,7 +19,7 @@ const CategoryList = () => {
         fetchCategories();
     }, []);
 
-    const handleMouseEnter = (categoryId) => {
+    const handleMouseClick = (categoryId) => {
         setActiveCategoryIds((prevActiveCategoryIds) => [
             ...prevActiveCategoryIds,
             categoryId,
@@ -57,11 +57,12 @@ const CategoryList = () => {
                 {childCategories.map((category) => (
                     <li
                         key={category.id}
-                        onMouseEnter={() => handleMouseEnter(category.id)}
-                        onMouseLeave={() => handleMouseLeave(category.id)}
+                        onClick={() => handleMouseClick(category.id)}
+                        //onMouseLeave={() => handleMouseLeave(category.id)}
+                        className='py-3'
                     >
                         <Link to={`/products/category/category=${category.title}`}>{category.title}</Link>
-                        {renderChildCategories(category)}
+                        {category.parentCategory && renderChildCategories(category)}
                     </li>
                 ))}
             </ul>
@@ -73,22 +74,17 @@ const CategoryList = () => {
     );
 
     return (
-        <ul className="border-2 border-black/30 w-[255px] pl-10 ">
+        <ul className="border border-black/20 rounded-[3px] h-min w-full px-3 pb-3">
             {rootCategories.map((category) => (
-                <li 
-                    key={category.id}
-                    onClick={() => handleMouseEnter(category.id)}
-                    onMouseLeave={() => handleMouseLeave(category.id)}
-                    className={activeCategoryIds.includes(category.id) ? "active  border-b-4 border-black/30" : "border-b-4 border-black/30"}
-                >
-                    <div
-                        onClick={() => handleClick(category)}
-                        className={category.parentCategory ? "child-category" : "pb-[20px]"}
-                    >
+                <li key={category.id}
+                    onClick={() => handleMouseClick(category.id)}
+                    //onMouseLeave={() => handleMouseLeave(category.id)}
+                    className="py-3 border-b border-black/20 cursor-pointer">
+                    <div onClick={() => handleClick(category)}>
                         {category.parentCategory ? (
                             <Link to={`/products/${category.title}`}>{category.title}</Link>
                         ) : (
-                            category.title
+                            <p>{category.title}</p>
                         )}
                     </div>
                     {activeCategoryIds.includes(category.id) &&

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import ProductCard from "./ProductCard.jsx";
+import {server} from "/src/env.js"
 
 const ProductList = () => {
     const {category} = useParams();
@@ -12,9 +13,9 @@ const ProductList = () => {
             try {
                 let response;
                 if (category !== undefined )
-                    response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/${category}`);
+                    response = await axios.get(server + `/products/${category}`);
                 else
-                    response = await axios.get(`https://etech-5fydkirpga-lm.a.run.app/products/all`)
+                    response = await axios.get(server + `/products/all`)
                 setProducts(response.data);
             } catch (error) {
                 console.log(error);
