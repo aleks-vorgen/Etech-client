@@ -3,8 +3,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
-import ProductCard from './ProductCard';
-import { get } from 'react-scroll/modules/mixins/scroller';
 
 const ProductDetails = () => {
     const {id} = useParams();
