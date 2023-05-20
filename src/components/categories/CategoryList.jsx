@@ -58,7 +58,7 @@ const CategoryList = () => {
                     <li
                         key={category.id}
                         onClick={() => handleMouseClick(category.id)}
-                        //onMouseLeave={() => handleMouseLeave(category.id)}
+                        onMouseLeave={() => handleMouseLeave(category.id)}
                         className='py-3'
                     >
                         <Link to={`/products/category/category=${category.title}`}>{category.title}</Link>
@@ -78,7 +78,7 @@ const CategoryList = () => {
             {rootCategories.map((category) => (
                 <li key={category.id}
                     onClick={() => handleMouseClick(category.id)}
-                    //onMouseLeave={() => handleMouseLeave(category.id)}
+                    onMouseLeave={() => handleMouseLeave(category.id)}
                     className="py-3 border-b border-black/20 cursor-pointer">
                     <div onClick={() => handleClick(category)}>
                         {category.parentCategory ? (

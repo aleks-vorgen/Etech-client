@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
