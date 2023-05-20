@@ -3,6 +3,8 @@ import axios from 'axios'
 import Category from '../components/categories/CategoryList.jsx';
 import Carousel from "../ui/Carousel.jsx";
 
+import ToggleSwitch from '../ui/ToggleSwitch.jsx';
+
 export function HomePage() {
     const [selectedFile, setSelectedFile] = useState(null);
 

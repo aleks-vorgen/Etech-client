@@ -3,8 +3,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
-import ProductCard from './ProductCard';
-import { get } from 'react-scroll/modules/mixins/scroller';
+
 
 const ProductDetails = () => {
     const {id} = useParams();
@@ -52,6 +51,7 @@ const ProductDetails = () => {
                 <p>Виробник: {product.producer}</p>
                 <p>Категорія: {product.category.title}</p>
                 <p>Усе про товар: {product.description}</p>
+                
             </div>
             {/* Render other product details here */}
         </div>
