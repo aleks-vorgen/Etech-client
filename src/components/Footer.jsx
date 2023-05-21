@@ -19,7 +19,6 @@ const Footer = () => {
             <Link to="/error" className="block" onClick={() => scroll.scrollTo('error')}>Доставка</Link>
             <Link to="/checkout" className="block" onClick={() => scroll.scrollTo('checkout')}>Оплата</Link>
             <Link to="/contact" className="block" onClick={() => scroll.scrollTo('contact')}>Контакти</Link>
-            <Link to="/contact" className="block" onClick={() => scroll.scrollTo('contact')}>Контакти</Link>
             <Link to="/products" className="block" onClick={() => scroll.scrollTo('products', { smooth: true, duration: 500 })}>Категорії</Link>
           </div>
         </div>

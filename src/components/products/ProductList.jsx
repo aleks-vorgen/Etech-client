@@ -13,7 +13,7 @@ const ProductList = () => {
             try {
                 let response;
                 if (category !== undefined )
-                    response = await axios.get(local + `/products/${category}`);
+                    response = await axios.get(server + `/products/${category}`);
                 else
                     response = await axios.get(server + `/products/all`)
                 setProducts(response.data);
@@ -26,7 +26,7 @@ const ProductList = () => {
     }, [category]);
 
     return (
-        <div className="mx-auto w-[1110px] gap-4 my-10 grid grid-cols-4">
+        <div className="mx-auto w-[1110px] gap-4 my-10 grid grid-cols-4 ">
             {products.map((product) => (
                 <ProductCard key={product.id} product={product}/>
             ))}
