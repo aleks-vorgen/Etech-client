@@ -27,6 +27,7 @@ const ProductCard = ({ product}) => {
         </p>
         <p className={product.discount > 0 ? 'font-[400] text-[16px] text-black/80 line-through ' : "font-[700] text-[24px]"}>{product.price} ₴</p>
       </div>
+      
     </Link>
   );
 };

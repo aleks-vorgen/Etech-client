@@ -6,7 +6,7 @@ import Warranty from "../../ui/Warranty";
 import Button from "../../ui/Button";
 import AvailableProduct from "../../ui/AvailableProduct";
 import AdditionalForProduct from "../../ui/AdditionalForProduct";
-
+import AboutProduct from "../../ui/AboutProduct";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -39,60 +39,59 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="w-[1110px] mx-auto flex justify-center mt-20">
-      <div className="mr-10 min-w-[40%] p-5 shadow-lg ">
-        <img
-          src={`https://etech-5fydkirpga-lm.a.run.app/images/product/${product.imgPath}`}
-          alt={product.title}
-          className="w-full"
-        />
-      </div>
-      <div className="ml-10">
-        <h2 className="font-[700] text-[24px] pb-[40px]">{product.title}</h2>
-        <p
-          className={
-            product.discount > 0
-              ? "font-[400] text-[16px] text-black/80 line-through "
-              : "font-[700] text-[24px]"
-          }
-        >
-          {product.price} ₴
-        </p>
-        <AvailableProduct />
-        <div className="flex gap-4 items-baseline ">
-        
-          <p
-            className={
-              product.discount >= 1
-                ? "font-[700] text-[28px] text-[#f84147]"
-                : "hidden"
-            }
-            
-          >
-            {getPriceWithDiscount(product.price, product.discount)} ₴
-          </p>
-          
-          <p
-            className={
-              product.discount >= 1
-                ? "font-[700] text-[18px] text-black/80 "
-                : "hidden"
-            }
-          >
-            {getSavedPrice(product.price, product.discount)} ₴
-          </p>
-          
+    <div>
+      <div className="w-[1110px] mx-auto flex justify-center mt-20">
+        <div className="mr-10 min-w-[40%] p-5 shadow-lg ">
+          <img
+            src={`https://etech-5fydkirpga-lm.a.run.app/images/product/${product.imgPath}`}
+            alt={product.title}
+            className="w-full"
+          />
         </div>
-        <p>Виробник: {product.producer}</p>
-        
-        <p>Усе про товар: {product.description}</p>
-        <Warranty />
-        <AdditionalForProduct />
-        <Button />
-        
-        
 
-        
+        <div className="ml-10">
+          <h2 className="font-[700] text-[24px] pb-[40px]">{product.title}</h2>
+          <p
+            className={
+              product.discount > 0
+                ? "font-[400] text-[16px] text-black/80 line-through "
+                : "font-[700] text-[24px]"
+            }
+          >
+            {product.price} ₴
+          </p>
+          <AvailableProduct />
+          <div className="flex gap-4 items-baseline ">
+            <p
+              className={
+                product.discount >= 1
+                  ? "font-[700] text-[28px] text-[#f84147]"
+                  : "hidden"
+              }
+            >
+              {getPriceWithDiscount(product.price, product.discount)} ₴
+            </p>
+
+            <p
+              className={
+                product.discount >= 1
+                  ? "font-[700] text-[18px] text-black/80 "
+                  : "hidden"
+              }
+            >
+              {getSavedPrice(product.price, product.discount)} ₴
+            </p>
+          </div>
+          <p>Виробник: {product.producer}</p>
+
+          <p>Усе про товар: {product.description}</p>
+          <Warranty />
+          <AdditionalForProduct />
+          <Button />
+        </div>
+      </div>
+      <div className=" w-[1110px] mx-auto flex justify-center mt-20">
+        <AboutProduct />
       </div>
     </div>
 
