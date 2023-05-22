@@ -7,6 +7,7 @@ import Button from "../../ui/Button";
 import AvailableProduct from "../../ui/AvailableProduct";
 import AdditionalForProduct from "../../ui/AdditionalForProduct";
 import AboutProduct from "../../ui/AboutProduct";
+import ProductSame from "./ProductSame";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -92,6 +93,9 @@ const ProductDetails = () => {
       </div>
       <div className=" w-[1110px] mx-auto flex justify-center mt-20">
         <AboutProduct />
+      </div>
+      <div className=" w-[1110px] mx-auto flex justify-center mt-0">
+        <ProductSame />
       </div>
     </div>
 

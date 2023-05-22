@@ -32,6 +32,7 @@ const CategoryList = () => {
                     <li key={category.id}>
                         <p onClick={() => handleMouseClick(category.id)}>
                             {category.title}
+                            
                         </p>
                         {openCategory === category.id && (
                             <ul className='child-category-list'>

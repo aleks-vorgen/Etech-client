@@ -1,5 +1,5 @@
 .root-category-list {
-    @apply border border-black/20 rounded-[3px] h-min w-full px-3
+    @apply border border-black/20 rounded-[3px] h-min w-full px-3  
 }
 
 .root-category-list li {

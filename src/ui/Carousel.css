@@ -1,6 +1,6 @@
 .carousel {
     position: relative;
-    @apply min-w-[800px] ml-10
+    @apply min-w-[800px] ml-10 min-h-[300px]
 }
 
 .carousel-items {

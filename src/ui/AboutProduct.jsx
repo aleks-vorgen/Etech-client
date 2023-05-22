@@ -42,7 +42,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
               id === 0 ? '' : ''} ${
               id === tabs.length - 1 ? '' : ''
             } ${
-              id === activeTab ? 'border-r-2 border-black/20 font-bold text-blue ' : 'border-r-2 border-black/20'
+              id === activeTab ? 'border-r-2 border-black/20 font-bold text-blue' : 'border-r-2 border-black/20'
             }`}
             onClick={() => handleTabClick(id)}
           >

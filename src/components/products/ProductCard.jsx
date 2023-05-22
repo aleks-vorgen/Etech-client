@@ -23,9 +23,9 @@ const ProductCard = ({ product}) => {
         <p className="mt-4 text-[16px] text-gray-700 truncate">
           {product.title}
         </p>
-        <p className={product.discount >= 1 ? 'mt-2 text-[22px] font-bold text-[#f84147]' : 'hidden'}>{getPriceWithDiscount(product.price, product.discount)} ₴ 
+        <p className={product.discount >= 1 ? 'mt-2 text-[22px] font-bold text-[#f84147]' : ' hidden'}>{getPriceWithDiscount(product.price, product.discount)} ₴ 
         </p>
-        <p className={product.discount > 0 ? 'font-[400] text-[16px] text-black/80 line-through ' : "font-[700] text-[24px]"}>{product.price} ₴</p>
+        <p className={product.discount > 0 ? 'font-[400] text-[16px] text-black/80 line-through ' : " mt-2 font-[700] text-[24px]"}>{product.price} ₴</p>
       </div>
       
     </Link>

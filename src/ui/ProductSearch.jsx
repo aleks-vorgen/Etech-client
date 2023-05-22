@@ -39,7 +39,7 @@ const ProductSearch = () => {
   };
 
   return (
-    <div className="relative mx-auto my-5 w-2/3">
+    <div className="relative mx-auto my-5 w-2/4">
       <form onSubmit={getData} className="flex">
         <input
           type="text"

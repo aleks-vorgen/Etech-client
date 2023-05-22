@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import Category from '../components/categories/CategoryList.jsx';
 import Carousel from "../ui/Carousel.jsx";
+import ProductPopular from '../components/products/ProductPopular.jsx';
+import ProductNew from '../components/products/ProductNew.jsx';
 
 export function HomePage() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -45,13 +47,26 @@ export function HomePage() {
     };
 
     return (
-        <div className='w-[1110px] mx-auto my-10'>
-            <div className='flex'>
-            <Category />
-            <Carousel />
+        <div >
+            <div className='flex w-[1110px] mx-auto my-10'>
+                <Category />
+                <Carousel />
+            </div>
+            <div className='flex w-[1110px] mx-auto my-10'>
+                <ProductPopular />
+            </div>
+            
+
+            <div className='w-full mx-auto flex items-start'>
+                <img cla src="src/images/sale/hot-sale.png" alt="hot-sale" />
             </div>
 
-            <div className='mt-96'>
+            <div className='flex w-[1110px] mx-auto my-10'>
+                <ProductNew />
+            </div>
+            
+
+           {/* <div className='mt-10'>
                 <p>Называть id.png (где id - айдишник продукта)</p>
                 <input type="file" onChange={handleFileChange}/>
                 <button onClick={handleUploadProduct}>Upload Product (.png)</button>
@@ -61,6 +76,7 @@ export function HomePage() {
                 <input type="file" onChange={handleFileChange}/>
                 <button onClick={handleUploadCategory}>Upload Category (.svg)</button>
             </div>
+        */}
 
         </div>
     )
