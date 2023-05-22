@@ -43,7 +43,7 @@ const Carousel = () => {
                 {images.map((image, index) => (
                     <div
                         key={index}
-                        className={activeIndex === index ? 'carousel-item' : 'carousel-items hidden'}
+                        className={activeIndex === index ? 'carousel-item' : 'carousel-item hidden'}
                         data-active={index === activeIndex}
                     >
                         <img src={image.src} alt={image.alt}/>

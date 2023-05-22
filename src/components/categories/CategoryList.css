@@ -1,0 +1,26 @@
+.root-category-list {
+    @apply border border-black/20 rounded-[3px] h-min w-full px-3
+}
+
+.root-category-list li {
+    @apply py-3 border-b border-black/20 cursor-pointer  transition-all
+}
+
+.root-category-list li:last-child {
+    border: none;
+}
+
+.child-category-list li {
+    @apply py-3 ml-3
+}
+
+.child-category-list li:first-child {
+}
+
+.child-category-list li:last-child {
+    @apply pb-0
+}
+
+.child-category-list p {
+
+}

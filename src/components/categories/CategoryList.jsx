@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {server, local} from "/src/env.js"
 import {Link} from "react-router-dom";
+import "./CategoryList.css"
 
 const CategoryList = () => {
     const [categories, setCategories] = useState([]);
@@ -25,23 +26,21 @@ const CategoryList = () => {
     };
 
     return (
-        <ul className="border border-black/20 rounded-[3px] h-min w-full px-3 pb-3">
+        <ul className="root-category-list">
             {categories.map((category) => (
                 category.childCategories.length > 0 && (
-                    <li
-                        key={category.id}>
-                        <p
-                            onClick={() => handleMouseClick(category.id)}
-                            className="py-3 border-b border-black/20 cursor-pointer">
+                    <li key={category.id}>
+                        <p onClick={() => handleMouseClick(category.id)}>
                             {category.title}
                         </p>
                         {openCategory === category.id && (
-                            <ul className='mt-3'>
+                            <ul className='child-category-list'>
                                 {category.childCategories.map((childCategory) => (
                                     <li key={childCategory.id}>
-                                        <p className="border-b border-black/20 cursor-pointer ml-5">
-                                            <Link
-                                                to={`/products/category/category=${childCategory.title}`}>{childCategory.title}</Link>
+                                        <p>
+                                            <Link to={`/products/category/category=${childCategory.title}`}>
+                                                {childCategory.title}
+                                            </Link>
                                         </p>
                                     </li>
                                 ))}
