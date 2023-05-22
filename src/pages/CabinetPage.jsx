@@ -2,7 +2,7 @@ import React from 'react'
 
 function Cabinet() {
   return (
-    <div>Особистий кабінет</div>
+    <div className='w-[1110px] mx-auto'>Особистий кабінет</div>
   )
 }
 

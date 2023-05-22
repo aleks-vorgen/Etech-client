@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {server} from "../env.js";
-import "./carousel.css"
+import "./Carousel.css"
 
 const Carousel = () => {
     const [images, setImages] = useState([]);

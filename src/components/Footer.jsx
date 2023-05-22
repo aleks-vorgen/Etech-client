@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="w-[1110px] mx-auto grid gap-8 pt-10 items-center">
         <div className="grid grid-cols-3 gap-4">
           <div className="grid">
-            <p className="text-orange font-bold text-4xl leading-[61.7px]">e-tech</p>
+            <p className="text-orange font-bold text-4xl leading-[61.7px]">el-tech</p>
             <p className="pt-10">
               Інтернет магазин електронної техніки,
               в якому знайдеться все, що потрібно

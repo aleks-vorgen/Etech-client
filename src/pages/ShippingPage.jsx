@@ -4,7 +4,7 @@ import React from 'react'
 
 export function ShippingPage() {
   return (
-    <div id="checkout">Доставка та оплата 
+    <div className='w-[1110px] mx-auto'>Доставка та оплата
       <Switch />
     </div>
   )

@@ -12,7 +12,7 @@ const ProductCard = ({ product}) => {
 
   return (
     <Link to={`/products/id/id=${product.id}`}>
-      <div className="mx-auto px-5 py-8 border-2 border-black/20 gap-4 h-[100%] hover:shadow-lg ">
+      <div className="mx-auto px-5 py-8 border border-black/20 rounded-[3px] gap-4 h-[100%] hover:shadow-lg">
         <div className="w-full overflow-clip ">
           <img
             src={`https://etech-5fydkirpga-lm.a.run.app/images/product/${product.imgPath}`}
