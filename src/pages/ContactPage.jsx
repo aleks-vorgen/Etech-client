@@ -18,7 +18,7 @@ export function ContactPage() {
                        target="_blank"
                        className='font-[400] text-[14px] leading-[15px] my-5 flex'>
                         <img src="/src/images/contacts/email.svg" alt=""/>
-                        <span className='ml-2'>el_tech@shop.app</span>
+                        <span className='ml-2'>silex@shop.app</span>
                     </a>
                 </div>
                 <div>
@@ -26,7 +26,7 @@ export function ContactPage() {
                        target='_blank'
                        className='font-[400] text-[14px] leading-[15px] my-5 flex'>
                         <img src="/src/images/contacts/socials/instagram.svg" alt="Instagram"/>
-                        <span className='ml-2'>el_tech.shop</span>
+                        <span className='ml-2'>silex.shop</span>
                     </a>
                 </div>
                 <div className='w-min'>
@@ -34,7 +34,7 @@ export function ContactPage() {
                        target='_blank'
                        className='font-[400] text-[14px] leading-[15px] flex'>
                         <img src="/src/images/contacts/socials/telegram.svg" alt="Telegram"/>
-                        <span className='ml-2'>el_tech.shop</span>
+                        <span className='ml-2'>silex_shop</span>
                     </a>
                 </div>
             </div>
