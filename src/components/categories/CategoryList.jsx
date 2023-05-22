@@ -27,7 +27,7 @@ const CategoryList = () => {
 
     return (
         <ul className="root-category-list">
-            {categories.map((category) => (
+            {categories.length === 0 ? <li>Loading...</li> : categories.map((category) => (
                 category.childCategories.length > 0 && (
                     <li key={category.id}>
                         <p onClick={() => handleMouseClick(category.id)}>
