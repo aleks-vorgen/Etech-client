@@ -57,9 +57,8 @@ export function HomePage() {
             </div>
             
 
-            <div className='w-full mx-auto flex items-start'>
-                <img cla src="src/images/sale/hot-sale.png" alt="hot-sale" />
-            </div>
+            
+                <img className='w-full mx-auto flex items-start w-max[1]' src="src/images/sale/hot-sale.png" alt="hot-sale" />
 
             <div className='flex w-[1110px] mx-auto my-10'>
                 <ProductNew />
