@@ -4,7 +4,7 @@ import { animateScroll as scroll } from 'react-scroll';
 
 const Footer = () => {
   return (
-    <footer className="bg-blue bottom-0 w-full mt-[100px] text-white">
+    <footer className="bg-blue bottom-0 w-full text-white">
       <div className="w-[1110px] mx-auto grid gap-8 pt-10 items-center">
         <div className="grid grid-cols-3 gap-4">
           <div className="grid">

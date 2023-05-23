@@ -41,7 +41,7 @@ const ProductDetails = () => {
 
     return (
         <div>
-            <div className="w-[1110px] mx-auto flex justify-center mt-20">
+            <div className="w-[1110px] mx-auto flex justify-center my-10">
                 <div className="mr-10 min-w-[40%] p-5 shadow-lg ">
                     <img src={`${server}/images/product/${product.imgPath}`}
                         alt={product.title} className="w-full"/>

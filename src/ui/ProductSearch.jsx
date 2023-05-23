@@ -44,12 +44,12 @@ const ProductSearch = () => {
             <form onSubmit={getData} className="flex">
                 <div className='w-full relative'>
                     <input type="text" id="default-search"
-                           className="block w-full px-5 py-2 text-black rounded-sm drop-shadow z-10 active:border-none"
+                           className="block w-full px-5 py-2 text-black rounded-sm drop-shadow active:border-none"
                            placeholder="Знайдеться все, що потрібно..." onChange={handleInputChange}/>
 
                     {products.length > 0 && (
                         <div
-                            className="absolute w-full bg-white border border-black/10 rounded-b-[3px] active:shadow-inner">
+                            className="absolute w-full bg-white border border-black/10 rounded-b-[3px] active:shadow-inner z-10">
                             {products.map((product) => (
                                 <Link to={`/products/id/id=${product.id}`} key={product.id}
                                       className="flex border-b border-black/10 p-3 last:border-none"
