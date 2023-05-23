@@ -15,7 +15,7 @@ const Header = () => {
                 <ProductSearch/>
                 <CartItem />
             </div>
-                <NavbarHeader/>
+            <NavbarHeader/>
         </div>
     )
 }
