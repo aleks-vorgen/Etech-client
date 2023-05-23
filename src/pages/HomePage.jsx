@@ -47,7 +47,7 @@ export function HomePage() {
     };
 
     return (
-        <div >
+        <div>
             <div className='flex w-[1110px] mx-auto my-10'>
                 <Category />
                 <Carousel />
@@ -57,8 +57,7 @@ export function HomePage() {
             </div>
             
 
-            
-                <img className='w-full mx-auto flex items-start w-max[1]' src="src/images/sale/hot-sale.png" alt="hot-sale" />
+            <img src="src/images/sale/hot-sale.png" alt="hot-sale" className='max-w mx-auto'/>
 
             <div className='flex w-[1110px] mx-auto my-10'>
                 <ProductNew />
