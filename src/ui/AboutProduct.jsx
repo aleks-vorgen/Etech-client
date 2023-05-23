@@ -57,7 +57,7 @@ const AboutProduct = ({}) => {
             <div className="flex border-b border-black/20">
                 {tabs.map((tab, id) => (
                     <button
-                        key={id} className={`flex px-4 py-2 ${id === activeTab ? 'border-b border-blue text-blue' : ''}`}
+                        key={id} className={`flex px-4 py-2 border border-black/20 ${id === activeTab ? 'border-b border-b-blue text-blue' : ''}`}
                         onClick={() => handleTabClick(id)}>
                         {tab.label}
                     </button>
