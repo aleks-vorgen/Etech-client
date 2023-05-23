@@ -15,9 +15,7 @@ const Header = () => {
                 <ProductSearch/>
                 <CartItem />
             </div>
-            <div className='bg-blue '>
                 <NavbarHeader/>
-            </div>
         </div>
     )
 }

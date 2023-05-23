@@ -8,7 +8,9 @@ export default {
     colors: {
       transparent: 'transparent',
       'blue': '#1E5DDB',
+      'clicked-blue': '#0945bd',
       'orange': '#DB4F35',
+      'clicked-orange': '#bf3a22',
       'black': '#323232',
       'white': '#FFFFFF'
     },
