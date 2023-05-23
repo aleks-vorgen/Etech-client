@@ -49,20 +49,26 @@ const ProductDetails = () => {
 
                 <div className="ml-10">
                     <h2 className="font-[700] text-[24px]">{product.title}</h2>
-                    <p className='border border-black/30 px-2 text rounded-[3px] mb-10 ml-auto w-min'>{product.producer}</p>
+                    <div className="flex gap-4 mt-4">
+                    <p className='border border-black/30 p-1 text rounded-[3px] mb- ml-auto w-min'>{product.producer}</p>
+                    <div className="border border-[#00bc52]/60 rounded-[3px] p-1 float-right text-[#00bc52]">В наявності</div>
+                    </div>
+                    
                     <p className={product.discount > 0 ?
                         "font-[400] text-[16px] text-black/80 line-through " : "font-[700] text-[24px]"}>
                         {product.price} ₴
                     </p>
-                    <div className="border border-[#00bc52]/60 rounded-[3px] p-1 float-right text-[#00bc52]">В наявності</div>
+                   
                     {product.discount > 0 && (
                         <div className="flex gap-4 items-baseline ">
+                        
                             <p className="font-[700] text-[28px] text-[#f84147]">
                                 {getPriceWithDiscount(product.price, product.discount)} ₴
                             </p>
                             <p className="font-[700] text-[18px] text-black/80">
                                 {getSavedPrice(product.price, product.discount)} ₴
                             </p>
+                            
                         </div>
                     )}
                     <Warranty />
