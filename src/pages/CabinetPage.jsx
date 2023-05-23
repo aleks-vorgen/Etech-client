@@ -40,7 +40,7 @@ export function CabinetPage() {
     },
   ];
   return (
-    <div className="w-[1110px] mx-auto  ">
+    <div className="w-[1110px] mx-auto">
       <div className="flex w-full ">
         <div className="w-[25%] border border-[lightGray] rounded-[3px] my-10 py-7 px-7 min-w-[250px]">
           <p className="font-[700] text=[16px] leading-[20px] tracking-[0.15em]">
