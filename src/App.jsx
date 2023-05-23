@@ -8,6 +8,7 @@ import {ShippingPage} from './pages/ShippingPage'
 import ErrorPage from './pages/ErrorPage'
 import ProductList from './components/products/ProductList.jsx'
 import ProductDetails from "./components/products/ProductDetails.jsx";
+import CabinetPage from './pages/CabinetPage'
 
 function App () {
   return (
@@ -18,7 +19,7 @@ function App () {
             <Route path='/products/id/:id/' element={<ProductDetails />} />
             <Route path='/products' element={<ProductList />} />
             <Route index element={ <HomePage /> } />
-            <Route path='/checkout' element={ <ShippingPage /> } />
+            <Route path='/checkout' element={ <CabinetPage /> } />
             <Route path='/contact' element={ <ContactPage /> } />
             <Route path='/error' element={<ErrorPage />} />
         </Route>
