@@ -53,7 +53,7 @@ const AboutProduct = ({}) => {
     };
 
     return (
-        <div className=''>
+        <div>
             <div className="flex border-b border-black/20">
                 {tabs.map((tab, id) => (
                     <button
