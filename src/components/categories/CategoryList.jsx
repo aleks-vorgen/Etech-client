@@ -3,23 +3,27 @@ import axios from "axios";
 import {server, local} from "/src/env.js"
 import {Link} from "react-router-dom";
 import "./CategoryList.css"
+import {useSelector} from "react-redux";
 
 const CategoryList = () => {
     const [categories, setCategories] = useState([]);
     const [openCategory, setOpenCategory] = useState(null);
+    const {token, username} = useSelector((state) => state.auth);
 
     useEffect(() => {
         const fetchCategories = async () => {
-            try {
-                const response = await axios.get(server + "/categories/all");
-                setCategories(response.data);
-            } catch (error) {
-                console.log(error);
-            }
+            const response = await axios.get(local + "/categories/all").catch(console.log)
+            setCategories(response.data);
         };
 
         fetchCategories();
     }, []);
+
+    const config = {
+        headers: {
+            Authorization: `Bearer_${token}`,
+        }
+    }
 
     const handleMouseClick = (categoryId) => {
         setOpenCategory(categoryId);
@@ -32,7 +36,7 @@ const CategoryList = () => {
                     <li key={category.id}>
                         <p onClick={() => handleMouseClick(category.id)}>
                             {category.title}
-                            
+
                         </p>
                         {openCategory === category.id && (
                             <ul className='child-category-list'>

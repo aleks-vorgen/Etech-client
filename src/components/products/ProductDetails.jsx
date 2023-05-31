@@ -17,7 +17,7 @@ const ProductDetails = () => {
         const getData = async () => {
             try {
                 const response = await axios.get(
-                    `https://etech-5fydkirpga-lm.a.run.app/products/${id}`
+                    local + `/products/${id}`
                 );
                 setProduct(response.data);
             } catch (e) {
@@ -43,7 +43,7 @@ const ProductDetails = () => {
         <div>
             <div className="w-[1110px] mx-auto flex justify-center my-10">
                 <div className="mr-10 min-w-[40%] p-5 shadow-lg ">
-                    <img src={`${server}/images/product/${product.imgPath}`}
+                    <img src={local + `/images/product/${product.imgPath}`}
                         alt={product.title} className="w-full"/>
                 </div>
 
