@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import {server} from "../env.js";
+import {local, server} from "../env.js";
 
 const ProductSearch = () => {
     const [query, setQuery] = useState('');
@@ -16,7 +16,7 @@ const ProductSearch = () => {
             }
 
             const response = await axios.get(
-                'https://etech-5fydkirpga-lm.a.run.app/products/all',
+                local + '/products/all',
                 {
                     params: {title: query, producer: query}
                 }
@@ -54,7 +54,7 @@ const ProductSearch = () => {
                                 <Link to={`/products/id/id=${product.id}`} key={product.id}
                                       className="flex border-b border-black/10 p-3 last:border-none"
                                       onClick={handleProductClick}>
-                                    <img src={`${server}/images/product/${product.imgPath}`} alt="" className='w-[10%] h-min'/>
+                                    <img src={local + `/images/product/${product.imgPath}`} alt="" className='w-[10%] h-min'/>
                                     <div className='flex flex-col pl-3 w-full'>
                                     <p>{product.title}</p>
                                     <p className='text-right'>{product.price} ₴</p>

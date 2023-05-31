@@ -30,7 +30,7 @@ export function ContactPage() {
                     </a>
                 </div>
                 <div className='w-min'>
-                    <a href='https://telegram.org'
+                    <a href='https://t.me/ALexus619'
                        target='_blank'
                        className='font-[400] text-[14px] leading-[15px] flex'>
                         <img src="/images/contacts/socials/telegram.svg" alt="Telegram"/>

@@ -8,6 +8,7 @@ import {ShippingPage} from './pages/ShippingPage'
 import ErrorPage from './pages/ErrorPage'
 import ProductList from './components/products/ProductList.jsx'
 import ProductDetails from "./components/products/ProductDetails.jsx";
+import {AuthPage} from "./pages/AuthPage.jsx";
 
 function App () {
   return (
@@ -21,6 +22,7 @@ function App () {
             <Route path='/checkout' element={ <ShippingPage /> } />
             <Route path='/contact' element={ <ContactPage /> } />
             <Route path='/error' element={<ErrorPage />} />
+            <Route path='/authentication' element={<AuthPage/>} />
         </Route>
       </Routes>
     </>

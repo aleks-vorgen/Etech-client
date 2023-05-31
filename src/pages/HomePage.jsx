@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import Category from '../components/categories/CategoryList.jsx';
+import CategoryList from '../components/categories/CategoryList.jsx';
 import Carousel from "../ui/Carousel.jsx";
 import ProductPopular from '../components/products/ProductPopular.jsx';
 import ProductNew from '../components/products/ProductNew.jsx';
+import {local, server} from "../env.js";
 
 export function HomePage() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -17,7 +18,7 @@ export function HomePage() {
             const formData = new FormData();
             formData.append('file', selectedFile);
 
-            axios.post('https://etech-5fydkirpga-lm.a.run.app/images/product', formData)
+            axios.post(server + '/images/product', formData)
                 .then((response) => {
                     console.log(response.status);
                     // Добавьте здесь необходимую логику после успешной загрузки файла
@@ -34,7 +35,7 @@ export function HomePage() {
             const formData = new FormData();
             formData.append('file', selectedFile);
 
-            axios.post('https://etech-5fydkirpga-lm.a.run.app/images/category', formData)
+            axios.post(server + '/images/category', formData)
                 .then((response) => {
                     console.log(response.status);
                     // Добавьте здесь необходимую логику после успешной загрузки файла
@@ -49,7 +50,7 @@ export function HomePage() {
     return (
         <div>
             <div className='flex w-[1110px] mx-auto my-10'>
-                <Category />
+                <CategoryList />
                 <Carousel />
             </div>
             <div className='flex w-[1110px] mx-auto my-10'>

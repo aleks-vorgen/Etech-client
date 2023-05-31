@@ -10,16 +10,12 @@ const ProductList = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            try {
-                let response;
-                if (category !== undefined )
-                    response = await axios.get(server + `/products/${category}`);
-                else
-                    response = await axios.get(server + `/products/all`)
-                setProducts(response.data);
-            } catch (error) {
-                console.log(error);
-            }
+            let response;
+            if (category !== undefined)
+                response = await axios.get(local + `/products/${category}`).catch(console.log);
+            else
+                response = await axios.get(local + `/products/all`).catch(console.log);
+            setProducts(response.data);
         };
 
         fetchProducts();

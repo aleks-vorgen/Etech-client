@@ -1,53 +1,38 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {server} from "../env.js";
+import {local, server} from "../env.js";
 import "./Carousel.css"
+import {Link} from "react-router-dom";
 
 const Carousel = () => {
-    const [images, setImages] = useState([]);
+    const [products, setProducts] = useState([])
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleNext = () => {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setActiveIndex((prevIndex) => (prevIndex + 1) % products.length);
     };
 
     const handlePrev = () => {
-        setActiveIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
-
-    const fetchImages = async () => {
-        try {
-            const response = await axios.get("https://placecage.com/1000/600/3");
-            const data = response.data;
-            setImages(data);
-        } catch (error) {
-            console.error(error);
-        }
+        setActiveIndex((prevIndex) => (prevIndex - 1 + products.length) % products.length);
     };
 
     useEffect(() => {
-        setImages([
-            {index: 1, src: server + '/images/product/1.png'},
-            {index: 2, src: server + '/images/product/2.png'},
-            {index: 2, src: server + '/images/product/3.png'},
-            {index: 2, src: server + '/images/product/4.png'},
-            {index: 2, src: server + '/images/product/5.png'},
-            {index: 2, src: server + '/images/product/6.png'},
-        ])
-        //fetchImages();
+        const fetchProducts = async () => {
+            const response = await axios.get(local + '/products/offers').catch(console.log);
+            setProducts(response.data);
+        }
+        fetchProducts();
     }, []);
 
     return (
         <div className="carousel">
             <div className="carousel-items">
-                {images.map((image, index) => (
-                    <div
-                        key={index}
-                        className={activeIndex === index ? 'carousel-item' : 'carousel-item hidden'}
-                        data-active={index === activeIndex}
-                    >
-                        <img src={image.src} alt={image.alt}/>
-                    </div>
+                {products.map((product, index) => (
+                    <Link to={`/products/id/id=${product.id}`} key={index}
+                          className={activeIndex === index ? 'carousel-item' : 'carousel-item hidden'}
+                          data-active={index === activeIndex}>
+                        <img src={local + `/images/product/${product.imgPath}`} alt={product.title}/>
+                    </Link>
                 ))}
             </div>
             <div className="carousel-controls">

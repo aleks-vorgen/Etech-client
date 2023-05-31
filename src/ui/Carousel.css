@@ -4,11 +4,11 @@
 }
 
 .carousel-items {
-    @apply border border-black/20 w-full rounded-[3px]
+    @apply border border-black/20 w-full rounded-[3px] p-5
 }
 
 .carousel-item {
-    @apply p-5;
+    @apply block w-max mx-auto z-10 relative;
     flex-shrink: 0;
     transition: transform 0.5s ease;
     transform: translateX(-100%);
