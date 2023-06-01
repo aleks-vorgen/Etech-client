@@ -1,7 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {removeToken} from "../store/actions/authActions.js";
+import {useDispatch} from "react-redux";
 
 export function CabinetPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const data = [
     {
       id: 1,
@@ -39,6 +44,12 @@ export function CabinetPage() {
       amoont: "25000",
     },
   ];
+
+  const handleClickLogOut = () => {
+    dispatch(removeToken());
+    navigate('/')
+  }
+
   return (
     <div className="w-[1110px] mx-auto">
       <div className="flex w-full ">
@@ -60,6 +71,9 @@ export function CabinetPage() {
           >
             <span>Мої відгуки</span>
           </Link>
+          <div className='font-[400] text-[14px] leading-[15px] my-4 flex cursor-pointer' onClick={handleClickLogOut}>
+            <span>Вийти</span>
+          </div>
         </div>
         <div className=" w-full  mx-10 my-10 ">
           <span className="font-bold text-[24px]">Історія замовлень</span>

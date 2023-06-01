@@ -3,9 +3,11 @@ import axios from "axios";
 import {local} from "../env.js"
 import {useDispatch} from "react-redux";
 import {saveToken} from "../store/actions/authActions.js";
+import {useNavigate} from "react-router-dom"
 
 export function AuthPage() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -14,7 +16,8 @@ export function AuthPage() {
 
         await axios.post(local + '/auth/login', {username, password})
             .then(response => {
-                dispatch(saveToken(response.data.token, response.data.username))
+                dispatch(saveToken(response.data.token, response.data.username, response.data.role));
+                navigate('/');
             })
             .catch(e => {
                 console.log(e.message)
@@ -34,9 +37,7 @@ export function AuthPage() {
                        className='border border-black/20 rounded-[3px] py-1 px-3'
                        required/>
 
-                <button type='submit'
-                        className='block mx-auto w-min border border-black/20 rounded-[3px] mt-3 py-1 px-5
-                        text-white bg-blue active:bg-clicked-blue transition-all'>
+                <button className='button blue-button block mx-auto w-min mt-3'>
                     Увійти
                 </button>
             </form>

@@ -1,21 +1,13 @@
 import React from "react";
-import {RiShoppingBasketFill} from "react-icons/ri";
+import {Link} from "react-router-dom";
 
-const CartItem = ({item}) => {
+const CartItem = () => {
     return (
-        <div className="flex items-center ml-3 min-w-[193px]">
-            <RiShoppingBasketFill className="text-2xl fill-blue scale-150"/>
-            <div className='pl-3'>
-                <div className="flex justify-between items-center">
-                    <span className="text-[16px]">Товарів:</span>
-                    <span className="pl-6 font-bold ">3 шт.</span>
-                </div>
-                <div className='flex justify-between items-center'>
-                    <span className="text-[16px]">Сума:</span>
-                    <span className="pl-6 font-bold ">1350 грн.</span>
-                </div>
+        <Link to='/cart'>
+            <div className="flex items-center p-2 border border-black/20 rounded-[3px]">
+                <img src='/images/cart.svg' alt='cart.svg'/>
             </div>
-        </div>
+        </Link>
     );
 };
 

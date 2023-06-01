@@ -1,10 +1,8 @@
-//Карточка подробного описания товара, с отзывами и характеристиками
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {server, local} from "/src/env.js"
 import { useParams } from "react-router-dom";
 import Warranty from "../../ui/Warranty";
-import Button from "../../ui/Button";
 import AdditionalForProduct from "../../ui/AdditionalForProduct";
 import AboutProduct from "../../ui/AboutProduct";
 import ProductSame from "./ProductSame";
@@ -37,6 +35,10 @@ const ProductDetails = () => {
 
     function getSavedPrice(price, discount) {
         return price - getPriceWithDiscount(price, discount);
+    }
+
+    function handleClickBuy() {
+
     }
 
     return (
@@ -73,7 +75,9 @@ const ProductDetails = () => {
                     )}
                     <Warranty />
                     <AdditionalForProduct />
-                    <Button />
+                    <button className='button orange-button mt-4' onClick={handleClickBuy}>
+                        Купити
+                    </button>
                 </div>
             </div>
             <div className=" w-[1110px] mx-auto flex justify-center mt-20">

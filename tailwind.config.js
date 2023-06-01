@@ -6,7 +6,6 @@ export default {
     ],
     theme: {
         colors: {
-            transparent: 'transparent',
             'blue': '#1E5DDB',
             'clicked-blue': '#0945bd',
             'orange': '#DB4F35',
