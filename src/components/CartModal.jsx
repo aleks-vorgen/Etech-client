@@ -1,40 +1,37 @@
 import React, {useState} from "react";
-import {
-    Dialog,
-    DialogHeader,
-    DialogBody,
-    DialogFooter,
-} from "@material-tailwind/react";
+import Modal from "react-modal"
+import './CartModal.css';
+import {useDispatch} from "react-redux";
+import CartList from "./cart/CartList.jsx";
+import {clearCart} from "../store/reducers/cartReducer.js";
+
+Modal.setAppElement('#root')
 
 //TODO
 export default function CartModal() {
+    const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
 
-    const handleOpen = () => setOpen(!open);
+
+    const toggleModal = () => setOpen(!open);
+    const handleApplyOrder = () => {
+        dispatch(clearCart);
+    }
 
     return (
         <div>
-            <button onClick={handleOpen}>
+            <button onClick={toggleModal}>
                 <img src='/images/cart.svg' alt='cart.svg'/>
             </button>
-            <Dialog open={open} id='DURAK' handler={handleOpen} className='absolute border border-black rounded-[3px] top-52 left-[50%]'
-                    animate={{
-                        mount: {scale: 1, y: 0},
-                        unmount: {scale: 0.9, y: -100},
-                    }}>
-                <DialogHeader>Its a simple dialog.</DialogHeader>
-                <DialogBody>
-                    Lorem, ipsum dolor sit
-                </DialogBody>
-                <DialogFooter>
-                    <button onClick={handleOpen} className="mr-1">
-                        <span>Cancel</span>
-                    </button>
-                    <button onClick={handleOpen}>
-                        <span>Confirm</span>
-                    </button>
-                </DialogFooter>
-            </Dialog>
+
+            <Modal isOpen={open} onRequestClose={toggleModal} className='cartModal' overlayClassName='cartOverlay'>
+                <div className='cartHeader'>Кошик</div>
+
+                <CartList />
+
+                <button className='button orange-button' onClick={handleApplyOrder}>Оформити замовлення</button>
+                <button className='x-button' onClick={toggleModal}>x</button>
+            </Modal>
         </div>
     );
 }

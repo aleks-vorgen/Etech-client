@@ -1,18 +1,21 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, {useEffect} from 'react';
+import {useSelector} from 'react-redux';
 import CartItem from './CartItem';
 
 const CartList = () => {
-  const cartItems = useSelector(state => state.cart);
+  const cart = useSelector((state) => state.cart)
 
-  return (
-    <div className="cart-list">
-      <h2>Cart</h2>
-      {cartItems.map(item => (
-        <CartItem key={item.id} item={item} />
-      ))}
-    </div>
-  );
+  useEffect(() => {
+      console.log(cart)
+  }, [cart])
+
+    return (
+        <div className="cartBody">
+            {cart.cart.length > 0 ? cart.cart.map(item => (
+                <CartItem key={item.id} item={item}/>
+            )) : <p>Cart is empty</p>}
+        </div>
+    );
 };
 
 export default CartList;

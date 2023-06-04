@@ -1,0 +1,31 @@
+.cartModal {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @apply border border-black/20 w-max;
+    background: #fff;
+    overflow: auto;
+    border-radius: 3px;
+    outline: none;
+    padding: 20px;
+}
+
+.cartOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.cartHeader {
+    @apply font-bold text-[24px];
+}
+
+.x-button {
+    @apply text-black/60 text-xl absolute top-0 right-2
+}
