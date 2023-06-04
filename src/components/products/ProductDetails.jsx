@@ -6,10 +6,14 @@ import Warranty from "../../ui/Warranty";
 import AdditionalForProduct from "../../ui/AdditionalForProduct";
 import AboutProduct from "../../ui/AboutProduct";
 import ProductSame from "./ProductSame";
+import {useDispatch, useSelector} from "react-redux";
+import {addToCart} from "../../store/reducers/cartReducer.js";
 
 const ProductDetails = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const {cart} = useSelector((state) => state.cart)
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getData = async () => {
@@ -23,6 +27,7 @@ const ProductDetails = () => {
             }
         };
         getData();
+        console.log(cart)
     }, [id]);
 
     if (!product) {
@@ -38,6 +43,7 @@ const ProductDetails = () => {
     }
 
     function handleClickBuy() {
+        dispatch(addToCart(product));
 
     }
 
