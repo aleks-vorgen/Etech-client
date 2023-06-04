@@ -15,7 +15,7 @@ export default function CartModal() {
     return (
         <div>
             <button onClick={handleOpen}>
-                <img src='/images/cart.svg' alt='cart.svg'/>
+                <img src='/src/images/cart.svg' alt='cart.svg'/>
             </button>
             <Dialog open={open} id='DURAK' handler={handleOpen} className='absolute border border-black rounded-[3px] top-52 left-[50%]'
                     animate={{
