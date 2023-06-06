@@ -7,7 +7,9 @@ export default {
     theme: {
         colors: {
             'blue': '#1E5DDB',
+            'lightBlue': '#edf4ff',
             'clicked-blue': '#0945bd',
+            'lightRed': '#ffeded',
             'orange': '#DB4F35',
             'clicked-orange': '#bf3a22',
             'black': '#323232',

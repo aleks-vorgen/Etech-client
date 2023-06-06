@@ -2,8 +2,8 @@ import React from 'react'
 import axios from "axios";
 import {local} from "../env.js"
 import {useDispatch} from "react-redux";
-import {saveToken} from "../store/actions/authActions.js";
 import {useNavigate} from "react-router-dom"
+import {saveToken} from "../store/reducers/authReducer.js";
 
 export function AuthPage() {
     const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export function AuthPage() {
 
         await axios.post(local + '/auth/login', {username, password})
             .then(response => {
-                dispatch(saveToken(response.data.token, response.data.username, response.data.role));
+                dispatch(saveToken(response.data));
                 navigate('/');
             })
             .catch(e => {

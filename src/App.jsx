@@ -10,6 +10,7 @@ import ProductDetails from "./components/products/ProductDetails.jsx";
 import CabinetPage from './pages/CabinetPage';
 import {AuthPage} from "./pages/AuthPage.jsx";
 import {AdminPage} from "./pages/AdminPage.jsx";
+import ShippingPage from "./pages/ShippingPage.jsx";
 
 function App () {
   return (
@@ -23,8 +24,9 @@ function App () {
             <Route path='/cabinet' element={ <CabinetPage /> } />
             <Route path='/contact' element={ <ContactPage /> } />
             <Route path='/error' element={<ErrorPage />} />
-            <Route path='/authentication' element={<AuthPage/>} />
-            <Route path='/admin' element={<AdminPage/>} />
+            <Route path='/authentication' element={<AuthPage />} />
+            <Route path='/admin' element={<AdminPage />} />
+            <Route path='/shipping' element={<ShippingPage />}/>
         </Route>
       </Routes>
     </>

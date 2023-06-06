@@ -4,7 +4,7 @@ import CategoryList from '../components/categories/CategoryList.jsx';
 import Carousel from "../ui/Carousel.jsx";
 import ProductPopular from '../components/products/ProductPopular.jsx';
 import ProductNew from '../components/products/ProductNew.jsx';
-import {local, server} from "../env.js";
+import {server} from "../env.js";
 
 export function HomePage() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -58,7 +58,7 @@ export function HomePage() {
             </div>
             
 
-            <img src="../images/sale/hot-sale.png" alt="hot-sale" className='max-w mx-auto'/>
+            <img src="/src/images/sale/hot-sale.png" alt="hot-sale" className='max-w mx-auto'/>
 
             <div className='flex w-[1110px] mx-auto my-10'>
                 <ProductNew />

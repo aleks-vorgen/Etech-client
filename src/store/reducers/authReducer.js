@@ -1,38 +1,41 @@
-import { createReducer } from '@reduxjs/toolkit';
-import { saveToken, removeToken } from '../actions/authActions';
-import {persistReducer} from "redux-persist";
-import { Cookies } from 'react-cookie';
+import {createSlice} from '@reduxjs/toolkit';
 
-const cookies = new Cookies();
-
-const initialState = {
-    token: null,
-    username: null,
-    role: null,
-};
-
-const authReducer = createReducer(initialState, (builder) => {
-    builder
-        .addCase(saveToken, (state, action) => {
-            state.token = action.payload.token;
+const authSlice = createSlice({
+    name: 'auth',
+    initialState: {
+        username: null,
+        lastname: null,
+        firstname: null,
+        middlename: null,
+        email: null,
+        token: null,
+        role: null,
+    },
+    reducers: {
+        saveToken: (state, action) => {
             state.username = action.payload.username;
-            state.role = action.payload.role
-        })
-        .addCase(removeToken, (state) => {
-            state.token = null;
+            state.lastname = action.payload.lastname;
+            state.firstname = action.payload.firstname;
+            state.middlename = action.payload.middlename;
+            state.email = action.payload.email;
+            state.token = action.payload.token;
+            state.role = action.payload.role;
+        },
+        removeToken: (state, action) => {
             state.username = null;
+            state.lastname = null;
+            state.firstname = null;
+            state.middlename = null;
+            state.email = null;
+            state.token = null;
             state.role = null;
-        });
+        }
+    }
 });
 
-const persistConfig = {
-    key: 'root',
-    storage: {
-        getItem: (key) => cookies.get(key),
-        setItem: (key, value) => cookies.set(key, value, { path: '/' }),
-        removeItem: (key) => cookies.remove(key, { path: '/' }),
-    },
-    whitelist: ['auth'], // Save only the "auth" state in cookies
-};
+export const authReducer = authSlice.reducer;
 
-export default persistReducer(persistConfig, authReducer);
+export const {
+    saveToken,
+    removeToken,
+} = authSlice.actions;

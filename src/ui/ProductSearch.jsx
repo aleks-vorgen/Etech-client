@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import {local, server} from "../env.js";
+import {local} from "../env.js";
 
 const ProductSearch = () => {
     const [query, setQuery] = useState('');
@@ -40,11 +40,11 @@ const ProductSearch = () => {
     };
 
     return (
-        <div className="relative mx-auto my-5 w-2/4">
+        <div className="relative mx-auto w-[50%]">
             <form onSubmit={getData} className="flex">
                 <div className='w-full relative'>
                     <input type="text" id="default-search"
-                           className="block w-full px-5 py-2 text-black rounded-sm drop-shadow active:border-none"
+                           className="block w-full px-5 py-2 text-black rounded-sm drop-shadow"
                            placeholder="Знайдеться все, що потрібно..." onChange={handleInputChange}/>
 
                     {products.length > 0 && (

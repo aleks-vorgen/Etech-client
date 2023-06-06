@@ -1,31 +1,21 @@
 .cartModal {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    @apply border border-black/20 w-max;
-    background: #fff;
-    overflow: auto;
-    border-radius: 3px;
-    outline: none;
-    padding: 20px;
-}
-
-.cartOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 10;
+    @apply relative w-max border border-black/20
+    bg-white overflow-auto rounded-[3px] outline-none py-5 px-10
+    top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
 .cartHeader {
     @apply font-bold text-[24px];
 }
 
+.cartBody {
+    @apply py-5;
+}
+
 .x-button {
-    @apply text-black/60 text-xl absolute top-0 right-2
+    @apply text-black/60 text-xl absolute top-2 right-5
+}
+
+.cartOverlay {
+    @apply fixed top-0 left-0 right-0 bottom-0 bg-black/30 z-10;
 }

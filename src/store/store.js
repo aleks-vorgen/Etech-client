@@ -1,8 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import {addToCart, cartReducer, loadFromCookie} from "./reducers/cartReducer.js";
-import authReducer from "./reducers/authReducer.js";
+import {configureStore} from "@reduxjs/toolkit";
+import {cartReducer, loadFromCookie} from "./reducers/cartReducer.js";
 import {getCookie, setCookie} from "../utils/cookieUtils.js";
-import {saveToken} from "./actions/authActions.js";
+import {authReducer, saveToken} from "./reducers/authReducer.js";
 
 
 export const store = configureStore({
@@ -14,19 +13,20 @@ export const store = configureStore({
 
 store.subscribe(() => {
     const authState = store.getState().auth;
-    //const cartState = store.getState().cart;
+    const cartState = store.getState().cart;
     setCookie('authState', JSON.stringify(authState));
-    //setCookie('cartState', JSON.stringify(cartState));
+    setCookie('cartState', JSON.stringify(cartState));
 });
 
 // Загрузка состояния из куки при загрузке страницы
 const authState = getCookie('authState');
-//const cartState = getCookie('cartState');
+const cartState = getCookie('cartState');
 if (authState) {
     const parsedState = JSON.parse(authState);
-    store.dispatch(saveToken(parsedState.token, parsedState.username, parsedState.role)); // Диспатч экшена для сохранения состояния из куки
+    store.dispatch(saveToken(parsedState)
+    );
 }
-//if (cartState) {
-//    const parsedState = JSON.parse(cartState);
-//    store.dispatch(loadFromCookie(parsedState))
-//}
+if (cartState) {
+    const parsedState = JSON.parse(cartState);
+    store.dispatch(loadFromCookie(parsedState.cart));
+}
