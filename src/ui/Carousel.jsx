@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {local, server} from "../env.js";
+import {server} from "../env.js";
 import "./Carousel.css"
 import {Link} from "react-router-dom";
 
@@ -18,7 +18,7 @@ const Carousel = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const response = await axios.get(local + '/products/offers').catch(console.log);
+            const response = await axios.get(server + '/products/offers').catch(console.log);
             setProducts(response.data);
         }
         fetchProducts();
@@ -31,7 +31,7 @@ const Carousel = () => {
                     <Link to={`/products/id/id=${product.id}`} key={index}
                           className={activeIndex === index ? 'carousel-item' : 'carousel-item hidden'}
                           data-active={index === activeIndex}>
-                        <img src={local + `/images/product/${product.imgPath}`} alt={product.title}/>
+                        <img src={server + `/images/product/${product.imgPath}`} alt={product.title}/>
                     </Link>
                 ))}
             </div>

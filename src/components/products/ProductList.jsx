@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import ProductCard from "./ProductCard.jsx";
-import {server, local} from "/src/env.js"
+import {server} from "/src/env.js"
 
 const ProductList = () => {
     const {category} = useParams();
@@ -12,9 +12,9 @@ const ProductList = () => {
         const fetchProducts = async () => {
             let response;
             if (category !== undefined)
-                response = await axios.get(local + `/products/${category}`).catch(console.log);
+                response = await axios.get(server + `/products/${category}`).catch(console.log);
             else
-                response = await axios.get(local + `/products/all`).catch(console.log);
+                response = await axios.get(server + `/products/all`).catch(console.log);
             setProducts(response.data);
         };
 

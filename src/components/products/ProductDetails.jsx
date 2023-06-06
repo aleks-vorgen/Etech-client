@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {local} from "/src/env.js"
+import {server} from "/src/env.js"
 import {useParams} from "react-router-dom";
 import Warranty from "../../ui/Warranty";
 import AdditionalForProduct from "../../ui/AdditionalForProduct";
 import AboutProduct from "../../ui/AboutProduct";
 import ProductSame from "./ProductSame";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {addToCart} from "../../store/reducers/cartReducer.js";
 
 const ProductDetails = () => {
@@ -18,7 +18,7 @@ const ProductDetails = () => {
         const getData = async () => {
             try {
                 const response = await axios.get(
-                    local + `/products/${id}`
+                    server + `/products/${id}`
                 );
                 setProduct(response.data);
             } catch (e) {
@@ -48,7 +48,7 @@ const ProductDetails = () => {
         <div>
             <div className="w-[1110px] mx-auto flex justify-center my-10">
                 <div className="mr-10 min-w-[40%] p-5 shadow-lg ">
-                    <img src={local + `/images/product/${product.imgPath}`}
+                    <img src={server + `/images/product/${product.imgPath}`}
                         alt={product.title} className="w-full"/>
                 </div>
 

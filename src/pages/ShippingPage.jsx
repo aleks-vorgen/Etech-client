@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import CartItem from "../components/cart/CartItem.jsx";
 import './ShippingPage.css'
 import axios from "axios";
-import {local} from '../env.js'
+import {server} from '../env.js'
 import Alert from "../ui/Alert.jsx";
 
 
@@ -20,7 +20,7 @@ export function ShippingPage() {
         setAlertSuccess(false);
         setAlertError(false);
         const data = getData(e.target)
-        await axios.post(local + '/orders/order', data)
+        await axios.post(server + '/orders/order', data)
             .then(response => {
                 setOrderAlertBody(response.data);
                 setAlertError(false)

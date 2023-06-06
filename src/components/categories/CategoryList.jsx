@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {server, local} from "/src/env.js"
+import {server} from "/src/env.js"
 import {Link} from "react-router-dom";
 import "./CategoryList.css"
 import {useSelector} from "react-redux";
@@ -8,11 +8,11 @@ import {useSelector} from "react-redux";
 const CategoryList = () => {
     const [categories, setCategories] = useState([]);
     const [openCategory, setOpenCategory] = useState(null);
-    const {token, username} = useSelector((state) => state.auth);
+    const {token} = useSelector((state) => state.auth);
 
     useEffect(() => {
         const fetchCategories = async () => {
-            const response = await axios.get(local + "/categories/all").catch(console.log)
+            const response = await axios.get(server + "/categories/all").catch(console.log)
             setCategories(response.data);
         };
 

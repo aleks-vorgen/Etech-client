@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {local, server} from '../../env.js'
+import {server} from '../../env.js'
 
 const ProductCard = ({product}) => {
     function getPriceWithDiscount(price, discount) {
@@ -16,7 +16,7 @@ const ProductCard = ({product}) => {
             <div className="mx-auto px-5 py-8 border border-black/20 rounded-[3px] gap-4 h-full hover:shadow-lg">
                 <div className='h-[200px] text-center'>
                     <img
-                        src={local + `/images/product/${product.imgPath}`}
+                        src={server + `/images/product/${product.imgPath}`}
                         alt={product.title}
                         className="max-h-[200px] inline-block"
                     />
