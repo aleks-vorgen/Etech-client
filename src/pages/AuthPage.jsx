@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from "axios";
-import {local} from "../env.js"
+import {server} from "../env.js"
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom"
 import {saveToken} from "../store/reducers/authReducer.js";
@@ -14,7 +14,7 @@ export function AuthPage() {
         let username = e.target.username.value;
         let password = e.target.password.value;
 
-        await axios.post(local + '/auth/login', {username, password})
+        await axios.post(server + '/auth/login', {username, password})
             .then(response => {
                 dispatch(saveToken(response.data));
                 navigate('/');

@@ -9,7 +9,7 @@ export function ContactPage() {
                 <div>
                     <a href='tel:+380995166544'
                        className='font-[400] text-[14px] leading-[15px] my-5 flex'>
-                        <img src="/src/public/images/contacts/phone.svg" alt=""/>
+                        <img src="/public/images/contacts/phone.svg" alt=""/>
                         <span className='ml-2'>(+380) 995-166-544</span>
                     </a>
                 </div>
@@ -17,7 +17,7 @@ export function ContactPage() {
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kulykov.o@student.sumdu.edu.ua"
                        target="_blank"
                        className='font-[400] text-[14px] leading-[15px] my-5 flex'>
-                        <img src="/src/public/images/contacts/email.svg" alt=""/>
+                        <img src="/public/images/contacts/email.svg" alt=""/>
                         <span className='ml-2'>silex@shop.app</span>
                     </a>
                 </div>
@@ -25,7 +25,7 @@ export function ContactPage() {
                     <a href='https://instagram.com'
                        target='_blank'
                        className='font-[400] text-[14px] leading-[15px] my-5 flex'>
-                        <img src="/src/public/images/contacts/socials/instagram.svg" alt="Instagram"/>
+                        <img src="/public/images/contacts/socials/instagram.svg" alt="Instagram"/>
                         <span className='ml-2'>silex.shop</span>
                     </a>
                 </div>
@@ -33,7 +33,7 @@ export function ContactPage() {
                     <a href='https://t.me/ALexus619'
                        target='_blank'
                        className='font-[400] text-[14px] leading-[15px] flex'>
-                        <img src="/src/public/images/contacts/socials/telegram.svg" alt="Telegram"/>
+                        <img src="/public/images/contacts/socials/telegram.svg" alt="Telegram"/>
                         <span className='ml-2'>silex_shop</span>
                     </a>
                 </div>

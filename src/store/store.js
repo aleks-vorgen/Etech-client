@@ -37,5 +37,5 @@ if (cartState) {
 }
 
 async function fetchProducts() {
-    await axios.get(local + '/products/all').then(response => store.dispatch(saveCatalog(response.data)))
+    await axios.get(server + '/products/all').then(response => store.dispatch(saveCatalog(response.data)))
 }
