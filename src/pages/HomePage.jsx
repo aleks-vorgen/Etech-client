@@ -58,7 +58,7 @@ export function HomePage() {
             </div>
             
 
-            <img src="/src/public/images/sale/hot-sale.png" alt="hot-sale" className='max-w mx-auto'/>
+            <img src="/public/images/sale/hot-sale.png" alt="hot-sale" className='max-w mx-auto'/>
 
             <div className='flex w-[1110px] mx-auto my-10'>
                 <ProductNew />
