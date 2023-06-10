@@ -43,7 +43,7 @@ const CategoryList = () => {
                                 {category.childCategories.map((childCategory) => (
                                     <li key={childCategory.id}>
                                         <p>
-                                            <Link to={`/products/category/category=${childCategory.title}`}>
+                                            <Link to={`/products/category/${childCategory.title}`}>
                                                 {childCategory.title}
                                             </Link>
                                         </p>

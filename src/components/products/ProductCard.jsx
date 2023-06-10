@@ -13,7 +13,7 @@ const ProductCard = ({product}) => {
 
     return (
         <Link to={`/products/id/id=${product.id}`}>
-            <div className="mx-auto px-5 py-8 border border-black/20 rounded-[3px] gap-4 h-full hover:shadow-lg">
+            <div className="mx-auto px-5 py-8 border border-black/20 rounded-[3px] gap-4 h-full hover:shadow-lg hover:scale-105 transition-all">
                 <div className='h-[200px] text-center'>
                     <img
                         src={server + `/images/product/${product.imgPath}`}
