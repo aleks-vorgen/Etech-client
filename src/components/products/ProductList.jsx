@@ -1,33 +1,39 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
-import axios from "axios";
 import ProductCard from "./ProductCard.jsx";
-import {server, local} from "/src/env.js"
+import Filter from "../filter/Filter.jsx";
+import {useSelector} from "react-redux";
+import {useParams} from "react-router-dom";
 
-const ProductList = () => {
-    const {category} = useParams();
-    const [products, setProducts] = useState([]);
+function getMinPrice(products) {
+    const prices = products.map(product => product.price)
+    return Math.min(...prices)
+}
+
+function getMaxPrice(products) {
+    const prices = products.map(product => product.price)
+    return Math.max(...prices)
+}
+
+export default function ProductList() {
+    const {category} = useParams()
+    const {catalog} = useSelector((state) => state.catalog);
+    const [products, setProducts] = useState(catalog)
 
     useEffect(() => {
-        const fetchProducts = async () => {
-            let response;
-            if (category !== undefined)
-                response = await axios.get(local + `/products/${category}`).catch(console.log);
-            else
-                response = await axios.get(local + `/products/all`).catch(console.log);
-            setProducts(response.data);
-        };
-
-        fetchProducts();
-    }, [category]);
+        if (category)
+            setProducts(catalog.filter(item => item.category.title === category))
+        else
+            setProducts(catalog)
+    }, [catalog, category])
 
     return (
-        <div className="mx-auto w-[1110px] gap-4 my-10 grid grid-cols-4 ">
-            {products.map((product) => (
-                <ProductCard key={product.id} product={product}/>
-            ))}
+        <div className='w-[1110px] mx-auto'>
+            <Filter priceRange={{min: getMinPrice(products), max: getMaxPrice(products)}}/>
+            <div className="my-10 gap-4 grid grid-cols-4">
+                {products.map((product) => (
+                    <ProductCard key={product.id} product={product}/>
+                ))}
+            </div>
         </div>
     );
 };
-
-export default ProductList;
