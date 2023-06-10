@@ -1,5 +1,5 @@
 .cartModal {
-    @apply relative w-max border border-black/20
+    @apply relative w-[950px] border border-black/20
     bg-white overflow-auto rounded-[3px] outline-none py-5 px-10
     top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }

@@ -8,7 +8,7 @@ const ErrorPage = () => {
         Такої сторінки не існує.{`:(`} <br />
         Спробуйте знайти щось інше, верхнє меню допоможе!
       </p>
-      <img src="/src/images/404/404.svg" alt="404" />
+      <img src="/src/public/images/404/404.svg" alt="404" />
     </div>
   );
 };

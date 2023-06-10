@@ -19,7 +19,7 @@ export default function CartModal() {
         <div className='h-[35px]'>
             <button onClick={toggleModal}
                     className='px-3 rounded-[3px] hover:bg-blue/10 transition-all duration-400 active:bg-clicked-blue/20'>
-                <img src='/src/images/cart.svg' alt='cart.svg' className=''/>
+                <img src='/src/public/images/cart.svg' alt='cart.svg' className=''/>
             </button>
 
             <Modal isOpen={open} onRequestClose={toggleModal} className='cartModal' overlayClassName='cartOverlay'>
