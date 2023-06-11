@@ -71,7 +71,6 @@ export function ShippingPage() {
                 <div>
                     <p className='font-bold text-[24px]'>Оформлення замовлення</p>
                     <hr className='border-black/20 my-5'/>
-                    <p className='mt-5 border border-black/20 rounded-[3px]'>Список товарів</p>
                     <div className='order-listing'>
                         {cart.map(item => (
                             <CartItem key={item.id} item={item}/>
@@ -79,7 +78,6 @@ export function ShippingPage() {
                     </div>
                     <hr className='border-black/20 my-5'/>
                     <div className='contacts'>
-                        <p className='mt-5 border border-black/20 rounded-[3px]'>Контактні дані</p>
                         <div className="grid grid-cols-3 justify-center">
                             <div>
                                 <label htmlFor="lastname">Прізвище</label>
