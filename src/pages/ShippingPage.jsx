@@ -21,7 +21,6 @@ export function ShippingPage() {
         setAlertError(false);
         const data = getData(e.target)
         if (data !== null) {
-            console.log(data)
             await axios.post(server + '/orders/order', data)
                 .then(response => {
                     setOrderAlertBody(response.data.id);
@@ -42,20 +41,26 @@ export function ShippingPage() {
     }
 
     function getData(data) {
-        for (let i = 0; i < data.phone.value.length; i++) {
-            if (!['+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(data.phone.value[i])) {
+        const lastname = data.lastname.value.replaceAll(' ', '');
+        const firstname = data.firstname.value.replaceAll(' ', '');
+        const middlename = data.middlename.value.replaceAll(' ', '');
+        const phone = data.phone.value.replaceAll(' ', '');
+        const email = data.email.value.replaceAll(' ', '');
+        const comment = data.comment.value;
+        for (let i = 0; i < phone.length; i++) {
+            if (!['+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(phone[i])) {
                 setOrderAlertBody("Номер телефону повинен містити тільки цифри")
                 setAlertError(true)
                 return null;
             }
         }
         return {
-            lastname: data.lastname.value.replaceAll(' ', ''),
-            firstname: data.firstname.value.replaceAll(' ', ''),
-            middlename: data.middlename.value.replaceAll(' ', ''),
-            phone: data.phone.value.replaceAll(' ', ''),
-            email: data.email.value.replaceAll(' ', ''),
-            comment: data.comment.value,
+            lastname: lastname,
+            firstname: firstname,
+            middlename: middlename,
+            phone: phone,
+            email: email,
+            comment: comment,
             productList: cart,
         }
     }

@@ -18,7 +18,7 @@ export const store = configureStore({
 store.subscribe(() => {
     const authState = store.getState().auth;
     const cartState = store.getState().cart;
-    setCookie('authState', JSON.stringify(authState));
+    setCookie('authState', JSON.stringify(authState), 2);
     setCookie('cartState', JSON.stringify(cartState));
 });
 

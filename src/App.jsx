@@ -11,6 +11,7 @@ import CabinetPage from './pages/CabinetPage';
 import {AuthPage} from "./pages/AuthPage.jsx";
 import {AdminPage} from "./pages/AdminPage.jsx";
 import ShippingPage from "./pages/ShippingPage.jsx";
+import RegisterPage from "./pages/RegisterPage.jsx";
 
 function App () {
   return (
@@ -25,6 +26,7 @@ function App () {
             <Route path='/contact' element={ <ContactPage /> } />
             <Route path='/error' element={<ErrorPage />} />
             <Route path='/authentication' element={<AuthPage />} />
+            <Route path='/registration' element={<RegisterPage />} />
             <Route path='/admin' element={<AdminPage />} />
             <Route path='/shipping' element={<ShippingPage />}/>
         </Route>

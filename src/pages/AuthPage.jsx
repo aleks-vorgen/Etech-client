@@ -2,7 +2,7 @@ import React from 'react'
 import axios from "axios";
 import {server} from "../env.js"
 import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import {saveToken} from "../store/reducers/authReducer.js";
 
 export function AuthPage() {
@@ -25,8 +25,8 @@ export function AuthPage() {
     }
 
     return (
-        <div className='w-[1110px] mx-auto'>
-            <form className='w-min mx-auto my-20' onSubmit={handleSubmit}>
+        <div className='w-[1110px] mx-auto my-10'>
+            <form className='w-min mx-auto' onSubmit={handleSubmit}>
                 <label htmlFor="username" className='text-md block'>Логін</label>
                 <input type="text" name='username' id='username' placeholder='Логін'
                        className='border border-black/20 rounded-[3px] py-1 px-3'
@@ -37,9 +37,14 @@ export function AuthPage() {
                        className='border border-black/20 rounded-[3px] py-1 px-3'
                        required/>
 
-                <button className='button blue-button block mx-auto w-min mt-3'>
+                <button className='button orange-button block mx-auto w-min mt-3'>
                     Увійти
                 </button>
+                <div className='border-b border-black/20 mt-3'></div>
+                <Link to='/registration'
+                      className='block text-center mt-1 text-blue hover:text-clicked-blue hover:scale-105 transition-transform'>
+                    Зареєструватися
+                </Link>
             </form>
         </div>
     )
