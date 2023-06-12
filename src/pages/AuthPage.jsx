@@ -20,13 +20,13 @@ export function AuthPage() {
                 navigate('/');
             })
             .catch(e => {
-                console.log(e.message)
+                console.log(e)
             })
     }
 
     return (
-        <div className='w-[1110px] mx-auto' onSubmit={handleSubmit}>
-            <form className='w-min mx-auto my-20'>
+        <div className='w-[1110px] mx-auto'>
+            <form className='w-min mx-auto my-20' onSubmit={handleSubmit}>
                 <label htmlFor="username" className='text-md block'>Логін</label>
                 <input type="text" name='username' id='username' placeholder='Логін'
                        className='border border-black/20 rounded-[3px] py-1 px-3'

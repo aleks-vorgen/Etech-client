@@ -26,9 +26,9 @@ const ProductPopular = () => {
     }, [category]);
 
     return (
-        <div className='mt-[7%]'>
-            <span className='font-bold text-[24px]'>Популярні товари</span>
-            <div className="mx-auto w-[1110px] gap-4 my-10 grid grid-cols-4 ">
+        <div>
+            <p className='flex w-[1110px] mx-auto font-bold text-[24px] mt-10'>Популярні товари</p>
+            <div className="mx-auto w-[1110px] gap-4 mt-3 grid grid-cols-4 ">
             {products.map((product, index) => (
                 index < 4 && <ProductCard key={product.id} product={product}/>
             ))}

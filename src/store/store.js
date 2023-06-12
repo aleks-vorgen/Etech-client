@@ -4,7 +4,7 @@ import {getCookie, setCookie} from "../utils/cookieUtils.js";
 import {authReducer, saveToken} from "./reducers/authReducer.js";
 import axios from "axios";
 import {catalogReducer, saveCatalog} from "./reducers/catalogReducer.js";
-import {server, local} from '../env.js'
+import {server} from '../env.js'
 
 
 export const store = configureStore({
@@ -25,7 +25,7 @@ store.subscribe(() => {
 // Загрузка состояния из куки при загрузке страницы
 const authState = getCookie('authState');
 const cartState = getCookie('cartState');
-const catalogState = fetchProducts();
+axios.get(server + '/products/all').then(response => store.dispatch(saveCatalog(response.data)))
 
 if (authState) {
     const parsedState = JSON.parse(authState);
@@ -34,8 +34,4 @@ if (authState) {
 if (cartState) {
     const parsedState = JSON.parse(cartState);
     store.dispatch(loadFromCookie(parsedState.cart));
-}
-
-async function fetchProducts() {
-    await axios.get(server + '/products/all').then(response => store.dispatch(saveCatalog(response.data)))
 }

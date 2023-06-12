@@ -20,18 +20,21 @@ export function ShippingPage() {
         setAlertSuccess(false);
         setAlertError(false);
         const data = getData(e.target)
-        await axios.post(server + '/orders/order', data)
-            .then(response => {
-                setOrderAlertBody(response.data);
-                setAlertError(false)
-                setAlertSuccess(true)
-            })
-            .catch(e => {
-                console.log(e.response.data)
-                setOrderAlertBody(e.response.data);
-                setAlertSuccess(false)
-                setAlertError(true)
-            })
+        if (data !== null) {
+            console.log(data)
+            await axios.post(server + '/orders/order', data)
+                .then(response => {
+                    setOrderAlertBody(response.data.id);
+                    setAlertError(false)
+                    setAlertSuccess(true)
+                })
+                .catch(e => {
+                    console.log(e.response.data)
+                    setOrderAlertBody(e.response.data);
+                    setAlertSuccess(false)
+                    setAlertError(true)
+                })
+        }
     }
 
     function handleOnChange(e) {
@@ -39,6 +42,13 @@ export function ShippingPage() {
     }
 
     function getData(data) {
+        for (let i = 0; i < data.phone.value.length; i++) {
+            if (!['+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(data.phone.value[i])) {
+                setOrderAlertBody("Номер телефону повинен містити тільки цифри")
+                setAlertError(true)
+                return null;
+            }
+        }
         return {
             lastname: data.lastname.value.replaceAll(' ', ''),
             firstname: data.firstname.value.replaceAll(' ', ''),
@@ -97,7 +107,7 @@ export function ShippingPage() {
 
                             <div>
                                 <label htmlFor="phone">Номер телефону</label>
-                                <input type="tel" name='phone' id='phone' required/>
+                                <input type="tel" name='phone' id='phone' required minLength='10' maxLength='15'/>
                             </div>
                             <div>
                                 <label htmlFor="email">Пошта</label>
@@ -129,7 +139,7 @@ export function ShippingPage() {
             {orderAlertBody !== null &&
                 <div>
                     <Alert alert={'success'} header={'Замовлення прийнято успішно'}
-                           body={`Номер замовлення №${orderAlertBody.id}`} open={alertSuccess}/>
+                           body={`Номер замовлення №${orderAlertBody}`} open={alertSuccess}/>
                     <Alert alert={'error'} header={'Помилка при оформленні замовлення'}
                            body={`${orderAlertBody}`} open={alertError}/>
                 </div>
