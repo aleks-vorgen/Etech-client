@@ -70,7 +70,6 @@ export default function ProductAddEdit({open, toggleModal}) {
         <div>
             <Modal isOpen={open} onRequestClose={toggleModal} className='cartModal' overlayClassName='cartOverlay'>
                 <form onSubmit={handleProductSubmit} className='cartBody'>
-                    <input type="number" value={id && id} hidden />
                     <input type="text" name='title' id='title' placeholder='Назва' required
                            className='block border border-black/20 rounded-[3px] py-1 px-3 w-full mb-5'/>
                     <select name='category' id='category' required defaultValue={0}
