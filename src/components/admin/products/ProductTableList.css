@@ -1,0 +1,15 @@
+table {
+    @apply w-full
+}
+
+thead > tr {
+    @apply flex w-full items-center border-b-2
+}
+
+tbody > tr {
+    @apply flex w-full items-center border-b
+}
+
+th, td {
+    @apply py-3 text-center w-full
+}

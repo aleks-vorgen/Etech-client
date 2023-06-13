@@ -1,0 +1,3 @@
+.tab-button {
+    @apply inline-block w-full p-4 border-b transition-all
+}
