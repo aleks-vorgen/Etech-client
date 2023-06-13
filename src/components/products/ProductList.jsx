@@ -28,7 +28,6 @@ export default function ProductList() {
 
     return (
         <div className='w-[1110px] mx-auto'>
-            <Filter priceRange={{min: getMinPrice(products), max: getMaxPrice(products)}}/>
             <div className="my-10 gap-4 grid grid-cols-4">
                 {products.map((product) => (
                     <ProductCard key={product.id} product={product}/>
