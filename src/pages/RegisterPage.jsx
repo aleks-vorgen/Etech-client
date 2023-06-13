@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
 import Alert from "../ui/Alert.jsx";
-import {local} from '../env.js'
+import {server} from '../env.js'
 import axios from "axios";
 
 export default function RegisterPage() {
@@ -14,7 +14,7 @@ export default function RegisterPage() {
         const data = getData(e.target)
         if (data !== null) {
             console.log(data)
-            await axios.post(local + '/auth/register', data)
+            await axios.post(server + '/auth/register', data)
                 .then(response => {
                     setUsername(response.data)
                     setAlertSuccess(true)

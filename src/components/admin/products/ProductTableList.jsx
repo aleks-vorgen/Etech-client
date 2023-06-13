@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {local} from '../../../env.js'
+import {server} from '../../../env.js'
 import axios from "axios";
 import './ProductTableList.css'
 import ProductAddEdit from "./ProductAddEdit.jsx";
@@ -12,7 +12,7 @@ export default function ProductTableList() {
     const toggleModal = () => setOpen(!open);
 
     useEffect(() => {
-        axios.get(local + '/products/all')
+        axios.get(server + '/products/all')
             .then(response => setProducts(response.data))
             .catch(console.log)
     }, [products])
@@ -23,7 +23,7 @@ export default function ProductTableList() {
 
     function handleDelete(e) {
         const id = e.target.id
-        axios.delete(local + '/admin/products/' + id, {
+        axios.delete(server + '/admin/products/' + id, {
             headers: {
                 Authorization: `Bearer_${token}`
             }
@@ -66,7 +66,7 @@ export default function ProductTableList() {
                             <td>{product.amount} шт.</td>
                             <td className='max-w-[150px] truncate' title={product.description}>{product.description}</td>
                             <td>
-                                <img src={local + '/images/product/' + product.imgPath} alt="Помилка"
+                                <img src={server + '/images/product/' + product.imgPath} alt="Помилка"
                                      className='max-w-[50px] mx-auto'/>
                             </td>
                             <td>

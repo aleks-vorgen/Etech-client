@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios";
-import {local} from "../../../env.js";
+import {server} from "../../../env.js";
 import {useSelector} from "react-redux";
 import Modal from "react-modal";
 
@@ -11,7 +11,7 @@ export default function ProductAddEdit({open, toggleModal}) {
 
     useEffect(() => {
 
-        axios.get(local + '/admin/categories/child', {
+        axios.get(server + '/admin/categories/child', {
             headers: {
                 Authorization: `Bearer_${token}`
             }
@@ -30,7 +30,7 @@ export default function ProductAddEdit({open, toggleModal}) {
     function handleProductSubmit(e) {
         e.preventDefault();
         const productData = getProductData(e.target);
-        axios.post(local + '/admin/products/product', productData, {
+        axios.post(server + '/admin/products/product', productData, {
             headers: {
                 Authorization: `Bearer_${token}`
             }
@@ -38,7 +38,7 @@ export default function ProductAddEdit({open, toggleModal}) {
             const formData = new FormData();
             formData.append('file', selectedFile, response.data.imgPath)
 
-            axios.post(local + '/images/product', formData)
+            axios.post(server + '/images/product', formData)
                 .then(response => {
                     console.log(response.status)
                 })
